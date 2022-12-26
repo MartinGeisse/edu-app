@@ -5,6 +5,9 @@ import {makeDescriptionAndTextFieldExercise} from "./exercise/makeDescriptionAnd
 import {
     makeDescriptionAndShuffledRadioLikeButtonMatrix
 } from "./exercise/makeDescriptionAndShuffledRadioLikeButtonMatrix";
+import {
+    makeDescriptionAndShuffledCheckboxLikeButtonMatrix
+} from "./exercise/makeDescriptionAndShuffledCheckboxLikeButtonMatrix";
 
 export const corpusArray: Atom[] = [
     {
@@ -22,13 +25,21 @@ export const corpusArray: Atom[] = [
         },
     },
     {
-        id: "radioText",
-        title: "Radio-like button matrix text",
+        id: "radioTest",
+        title: "Radio-like button matrix test",
         content: "foo",
         exerciseGenerator: () => {
             return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", "cor", ["w1", "w2", "w3", "w4", "w5"]);
         },
-    }
+    },
+    {
+        id: "checkboxTest",
+        title: "Checkbox-like button matrix test",
+        content: "foo",
+        exerciseGenerator: () => {
+            return makeDescriptionAndShuffledCheckboxLikeButtonMatrix("bla", ["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"]);
+        },
+    },
 ];
 
 export const corpusMap: Record<string, Atom> = (() => {
