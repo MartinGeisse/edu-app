@@ -2,6 +2,9 @@ import {Atom} from "./Atom";
 import {randomInt} from "./helpers";
 import {checkIntegerComplex} from "./exerciseGenerators";
 import {makeDescriptionAndTextFieldExercise} from "./exercise/makeDescriptionAndTextFieldExercise";
+import {
+    makeDescriptionAndShuffledRadioLikeButtonMatrix
+} from "./exercise/makeDescriptionAndShuffledRadioLikeButtonMatrix";
 
 export const corpusArray: Atom[] = [
     {
@@ -18,6 +21,14 @@ export const corpusArray: Atom[] = [
             return makeDescriptionAndTextFieldExercise(description, answerValidator);
         },
     },
+    {
+        id: "radioText",
+        title: "Radio-like button matrix text",
+        content: "foo",
+        exerciseGenerator: () => {
+            return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", "cor", ["w1", "w2", "w3", "w4", "w5"]);
+        },
+    }
 ];
 
 export const corpusMap: Record<string, Atom> = (() => {
