@@ -1,7 +1,7 @@
-import {Exercise, ExerciseProps} from "../Atom";
+import {Exercise, ExerciseProps} from "../atom/Atom";
 import {useState} from "react";
 import {Button, Grid} from "@mui/material";
-import {shuffle} from "../../util/shuffle";
+import {shuffle} from "../util/shuffle";
 
 /**
  * TODO: might automatically remove "wrong" answers that are identical to the correct answer, but (1) they must be

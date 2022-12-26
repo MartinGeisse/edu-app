@@ -1,4 +1,4 @@
-import {AtomState} from "../logic/AtomState";
+import {AtomState} from "../atom/AtomState";
 
 export function parseAtomState(json: string|undefined|null): AtomState {
     const decodedValue = JSON.parse(json ?? "{}");

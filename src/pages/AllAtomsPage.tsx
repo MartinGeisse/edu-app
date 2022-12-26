@@ -1,4 +1,4 @@
-import {corpusArray} from "../logic/corpus";
+import {corpusArray} from "../corpus/corpus";
 
 export function AllAtomsPage() {
     return <div>

@@ -1,5 +1,5 @@
 import {ReactElement} from "react";
-import {AtomContent} from "./content/AtomContent";
+import {AtomContent} from "../content/AtomContent";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // exercise content

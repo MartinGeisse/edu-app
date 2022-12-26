@@ -1,4 +1,4 @@
-import {Exercise, ExerciseProps} from "../Atom";
+import {Exercise, ExerciseProps} from "../atom/Atom";
 import {useState} from "react";
 
 export function makeDescriptionAndTextFieldExercise(description: string, answerValidator: (answer: string) => boolean): Exercise {

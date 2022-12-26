@@ -1,14 +1,15 @@
-import React from 'react';
-import {AllAtomsPage} from "./pages/AllAtomsPage";
+import React from "react";
+import {AllAtomsPage} from "../pages/AllAtomsPage";
 import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
-import {SelfLoadingAtomView} from "./logic/SelfLoadingAtomView";
+import {SelfLoadingAtomPage} from "../pages/SelfLoadingAtomPage";
+import "./App.css";
 
 function AtomPageWrapper() {
   const {id} = useParams<{ id: string }>();
   if (!id) {
     throw new Error("no atom id");
   }
-  return <SelfLoadingAtomView id={id} />;
+  return <SelfLoadingAtomPage id={id} />;
 }
 
 function App() {

@@ -1,8 +1,3 @@
-
-export function noSpaceEquals(expected: string): (answer: string) => boolean {
-    return (answer: string) => (answer.replace(" ", "") === expected);
-}
-
 export function checkIntegerComplex(real: number, imaginary: number): (answer: string) => boolean {
     return (answer: string) => {
         answer = answer.replace(" ", "");

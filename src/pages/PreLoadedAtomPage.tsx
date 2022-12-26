@@ -1,15 +1,15 @@
-import {Atom, materializeExerciseRules} from "./Atom";
-import {AtomState} from "./AtomState";
+import {Atom, materializeExerciseRules} from "../atom/Atom";
+import {AtomState} from "../atom/AtomState";
 import {useState} from "react";
-import {AtomContentView} from "./content/AtomContentView";
+import {AtomContentView} from "../content/AtomContentView";
 
-export type PreLoadedAtomViewProps = {
+export type PreLoadedAtomPageProps = {
     atom: Atom;
     state: AtomState;
     onStateChanged: (newState: AtomState) => void;
 };
 
-export function PreLoadedAtomView(props: PreLoadedAtomViewProps) {
+export function PreLoadedAtomPage(props: PreLoadedAtomPageProps) {
     const {atom} = props;
     const exerciseRules = materializeExerciseRules(atom.exerciseRules ?? {});
     const [exerciseDisabled, setExerciseDisabled] = useState(false);

@@ -1,15 +1,15 @@
-import {Atom} from "./Atom";
-import {randomInt} from "./exercise/helpers";
-import {checkIntegerComplex} from "./exercise/exerciseGenerators";
-import {makeDescriptionAndTextFieldExercise} from "./exercise/makeDescriptionAndTextFieldExercise";
+import {Atom} from "../atom/Atom";
+import {randomInt} from "../util/randomInt";
+import {checkIntegerComplex} from "./checkIntegerComplex";
+import {makeDescriptionAndTextFieldExercise} from "../exercise/makeDescriptionAndTextFieldExercise";
 import {
     makeDescriptionAndShuffledRadioLikeButtonMatrix
-} from "./exercise/makeDescriptionAndShuffledRadioLikeButtonMatrix";
+} from "../exercise/makeDescriptionAndShuffledRadioLikeButtonMatrix";
 import {
     makeDescriptionAndShuffledCheckboxLikeButtonMatrix
-} from "./exercise/makeDescriptionAndShuffledCheckboxLikeButtonMatrix";
-import {AtomContent} from "./content/AtomContent";
-import {Line} from "./content/Drawing";
+} from "../exercise/makeDescriptionAndShuffledCheckboxLikeButtonMatrix";
+import {AtomContent} from "../content/AtomContent";
+import {Line} from "../content/Drawing";
 
 export const corpusArray: Atom[] = [
     {
