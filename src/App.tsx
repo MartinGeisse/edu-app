@@ -1,16 +1,23 @@
-import React, {ReactElement, useState} from 'react';
+import React from 'react';
 import {AllAtomsPage} from "./pages/AllAtomsPage";
+import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
+import {SelfLoadingAtomView} from "./logic/SelfLoadingAtomView";
 
-export type PageProps = {
-  setPage: (page: Page) => void;
-};
-
-export type Page = (props: PageProps) => ReactElement;
+function AtomPageWrapper() {
+  const {id} = useParams<{ id: string }>();
+  if (!id) {
+    throw new Error("no atom id");
+  }
+  return <SelfLoadingAtomView id={id} />;
+}
 
 function App() {
-  // TODO add react router
-  const [Page, setPage] = useState<Page>(() => AllAtomsPage);
-  return <Page setPage={page => setPage(() => page)} />;
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/:id" element={<AtomPageWrapper />} />
+      <Route path="/" element={<AllAtomsPage />} />
+    </Routes>
+  </BrowserRouter>;
 }
 
 export default App;
