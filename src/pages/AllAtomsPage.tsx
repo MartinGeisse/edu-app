@@ -1,5 +1,5 @@
 import {corpusArray} from "../logic/corpus";
-import {PageProps} from "../components/App/App";
+import {PageProps} from "../App";
 import {makeAtomPage} from "./AtomPage";
 
 export function AllAtomsPage(props: PageProps) {

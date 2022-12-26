@@ -1,6 +1,6 @@
 import {Atom} from "./Atom";
-import {randomInt} from "./helpers";
-import {checkIntegerComplex} from "./exerciseGenerators";
+import {randomInt} from "./exercise/helpers";
+import {checkIntegerComplex} from "./exercise/exerciseGenerators";
 import {makeDescriptionAndTextFieldExercise} from "./exercise/makeDescriptionAndTextFieldExercise";
 import {
     makeDescriptionAndShuffledRadioLikeButtonMatrix
@@ -8,6 +8,8 @@ import {
 import {
     makeDescriptionAndShuffledCheckboxLikeButtonMatrix
 } from "./exercise/makeDescriptionAndShuffledCheckboxLikeButtonMatrix";
+import {AtomContent} from "./content/AtomContent";
+import {Line} from "./content/Drawing";
 
 export const corpusArray: Atom[] = [
     {
@@ -22,6 +24,28 @@ export const corpusArray: Atom[] = [
             const description = `What is (${a}+${b}i) + (${c} + ${d}i)?`;
             const answerValidator = checkIntegerComplex(a + c, b + d);
             return makeDescriptionAndTextFieldExercise(description, answerValidator);
+        },
+    },
+    {
+        id: "contentTest",
+        title: "Content Test",
+        content: [
+            "first para",
+            "second para",
+            {type: "plainText", text: "foo"},
+            {
+                type: "drawing",
+                drawing: {
+                    elements: [
+                        new Line(0, 0, 0, 100),
+                        new Line(0, 100, 50, 50),
+                    ]
+                }
+            },
+        ],
+        exerciseGenerator: () => {
+            const description: AtomContent = [];
+            return makeDescriptionAndTextFieldExercise("Egal was du antwortest, ist eh falsch.", answer => false);
         },
     },
     {

@@ -1,5 +1,5 @@
 import React, {ReactElement, useState} from 'react';
-import {AllAtomsPage} from "../../pages/AllAtomsPage";
+import {AllAtomsPage} from "./pages/AllAtomsPage";
 
 export type PageProps = {
   setPage: (page: Page) => void;
