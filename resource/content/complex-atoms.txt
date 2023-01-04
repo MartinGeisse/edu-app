@@ -1,0 +1,98 @@
+review: real numbers, rational numbers (fractions)
+- which is real, which is rational (atom needed?)
+
+no square is negative / root of negatives
+- which are not real? checkboxes
+
+i^2=-1 not real; imaginary unit (1 = real unit); imaginary numbers -> R*i
+- which are real which are imaginary? checkboxes; includes R and R*i
+
+(-i)^2 = -1
+- which are real which are imaginary? checkboxes; includes R, R*i, R*i*i and R*i*i*i
+
+complex numbers: computed though formulas of real and imaginary numbers
+each real is complex; each imaginary is complex
+0 is all of that
+general shape a+bi; a, b in R
+    subsets: a=0 or b = 0
+calculating
+    i cannot be combined with real numbers
+    i*i -> -1
+- which of these is complex? several formulas; correct answer: all of them
+- which of these is real?
+- which of these is imaginary?
+
+2d coordinate system
+- place a number in the 2d coordinate system
+- tell the general shape of a number in the coordinate system
+
+addition, subtraction: general shape
+- add these numbers (given in general shape)
+
+addition, subtraction: coordinate system -> vector concat
+- add these numbers (given as points in coordinate system, place in coordinate system)
+- desktop: mouse position -> show arrows
+- mobile: hold touch -> show arrow
+
+negation -- general shape
+- negate these numbers
+
+negation -- coords: mirror at 0
+- negate these numbers (given / placed in coord sys)
+
+multiplication of complex by real
+- multiply these numbers (given in general shape / real)
+
+multiplication of two complex; coords: harder to explain
+- multiply these numbers (given in general shape)
+
+division of complex by real
+- divide these numbers (given in general shape / real)
+
+division: (erweitern mit konjugierter)
+- divide these numbers (given in general shape)
+
+equality, inequality
+- which of these numbers is equal to (insert general shape); multiple choices (check/radio?) given as formulas
+    with addition. Best for flow: select-one; button matrix.
+
+no gt/gte/lt/lte
+- which if these inequalities is true, false, or undefined? multiple 3-radio-groups
+    - ineq with complex/complex, complex/real, real/real
+
+realteil, imaginärteil; beide in R
+    easy to read in (a+bi) but always defined
+- compute Re, Im of given complex in general shape or formulas
+
+komplex konjugierte (numbers)
+- conjugate these numbers (general shape)
+
+komplex konjugierte (coordinate system)
+- conjugate these numbers
+
+realteil, imaginärteil daraus definieren
+- jeweils nur sagen, dass man es so definieren kann; ex: benutzer muss die richtige Formel wählen
+
+absolute
+- berechnen aus general shape
+
+----- TODO -------------
+
+polar coords
+(dt.: "argument") = winkel (Physik: Phase)
+    linksrum gezählt
+betragsquadrat, i.a. !=quadrat, immer reell
+trigonometrie mit Argument -> Re, Im
+0 kein Argument, aber als 0 definiert
+exponentialfunktion, konjugierte dieser
+exp(imag)
+exp(complex)
+jede complex als kartes. coords oder polar coords
+multiplikation in polar coords
+graphische interpretation
+division in polar coords
+
+
+
+
+

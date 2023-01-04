@@ -1,0 +1,10 @@
+Users should immediately think, "I like the flow of this" when progressing through atoms.
+- should not feel the desire to stop
+- should be motivated to complete yet another atom before stopping
+- should be motivated to "take a step to the side" and complete atoms out-of-order
+
+To achieve this,
+- atoms should not stretch too long
+- atoms should have a similar "length" or "complexity", resulting in a similar length in time.
+    -> complex topic? cut into smaller atoms
+

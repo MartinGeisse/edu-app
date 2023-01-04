@@ -1,0 +1,43 @@
+review: real numbers, rational numbers (fractions)
+no square is negative / root of negatives
+i^2=-1 not real; imaginary unit (1 = real unit)
+imaginary numbers -> R*i
+(-i)^2 = -1
+complex numbers: computed though formulas of real and imaginary numbers
+each real is complex; each imaginary is complex
+0 is all of that
+general shape a+bi; a, b in R
+    subsets: a=0 or b = 0
+2d coordinate system
+calculating
+    i cannot be combined with real numbers
+    i*i -> -1
+addition, subtraction; coordinate system: vector concat
+negation; coords: mirror at 0
+multiplication; coords: harder to explain
+division: (erweitern mit konjugierter)
+equality, inequality
+no gt/gte/lt/lte
+realteil, imaginärteil; beide in R
+    easy to read in (a+bi) but always defined
+komplex konjugierte
+realteil, imaginärteil daraus definieren
+absolute
+polar coords
+(dt.: "argument") = winkel (Physik: Phase)
+    linksrum gezählt
+betragsquadrat, i.a. !=quadrat, immer reell
+trigonometrie mit Argument -> Re, Im
+0 kein Argument, aber als 0 definiert
+exponentialfunktion, konjugierte dieser
+exp(imag)
+exp(complex)
+jede complex als kartes. coords oder polar coords
+multiplikation in polar coords
+graphische interpretation
+division in polar coords
+
+
+
+
+

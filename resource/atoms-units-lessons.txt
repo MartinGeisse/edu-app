@@ -1,0 +1,110 @@
+
+Should atoms be grouped into larger units?
+Should the grouping be hierarchical?
+Or are atom dependencies enough to implicitly generate larger units?
+
+-> What is the learner's intention when using the platform?
+The learner might have the intention to
+- learn about a large topic (e.g. electronics)
+    to understand electronics
+    to build electronics
+    to know things
+- learn about a smaller topic inside that, e.g.
+    basic circuits
+        to get an idea of what ot expect
+        as a foundation for further learning
+        to know things
+    how to build a single-microcontroller design
+        to build a specific design and solve a problem with it
+        as a foundation for further learning
+        to know things
+    support topics, e.g. complex numbers
+        because it is needed for another sub.topic
+        because it is needed for external reasons
+        as a foundation for further learning
+        to know things
+
+Subdivision levels:
+- top-level: electronics, programming, math
+- course level (electronics): circuits, microcontrollers, high-frequency designs
+- lesson level (circuits): basics, specific arrangements, simulation algorithms, parts, symbols
+- atom level
+
+A learner would enter at top-level (general learning) or course level (specific intention). Lesson level is less useful
+because it depends too much on the previous lessons and is better served by e.g. Wikipedia or a Google search. Atom
+level is way too specific.
+
+Which levels are needed for what?
+- atoms are needed for step-by-step learning
+- lesson level - ?
+- course level is needed to select an entry point when starting a new topic
+- top-level might be needed
+    - to show course level units in a grouped way. This makes it a tool for displaying topics, nothing else.
+    - as an entry point for learners ("hand-holding") without any specific idea where to start
+
+How does Khan Academy do this?
+- Math: High School & College (display grouping only)
+- Algebra 1 (selection)
+- solving equations and inequalities
+- linear equations with variables on both sides
+- Equation with variables on both sides: fractions (video)
+
+A concept is needed for
+- finding an entry point based on intention
+- keeping focus when progressing
+- making a path selection when progressing
+
+University-style "courses" are not necessary for teacher's organization like is the case in a real university.
+
+Attempt at a concept:
+- learner selects a goal (e.g. top-level or course-level)
+    top-level includes both the intention to learn the whole toplevel subject and for free-style learning within that
+- system provides guidance
+    - atom dependencies
+    - guidance at lesson level probably harmful -- better let the learner choose at will
+        - depends: some people might like guidance
+    - guidance at course-level includes
+        - focus: stay within one course
+        - free-style learning: choose at will for fun / interesting topics
+-> probably needs just some switches at the map page:
+    filter by top-level topic
+    filter by course
+    --> idea: add hierarchical topics and allow filtering by any topic from any level)
+
+Should topics have dependencies?
+- atoms have dependencies. Topic dependencies follow from that (unless they are contradictory, but that can be prevented)
+- should users be able to sidestep topic dependencies? So they don't have to "learn" things they already know
+    - refreshing their knowledge is a good thing anyway, but it may still be annoying
+    - a "skippable" flag per topic node would solve that; but why not just make every topic skippable?
+        - there may be future requirements for mandatory topics, but YAGNI
+        - so just make every topic node skippable
+
+Concept:
+- atoms as planned
+- atoms can be TODO, SOLVED or SKIPPED
+- Users can only solve atoms, making them SOLVED (no matter if previously TODO or SKIPPED).
+- hierarchical topic nodes
+- every atom has a topic and an implicit supertopic chain
+- topics can be skipped by the user; this effectively makes all their atoms SKIPPED unless SOLVED
+- before an atom can be "used" it must be SOLVED or SKIPPED
+- topic dependencies are implicitly defined by atom dependencies and hierarchy
+- atom dependency chains must not include a sequence-with-holes of atoms A..B..C in which A and C have a topic node in
+    their supertopic chain but B doesn't have that topic node in its supertopic chain. This disallows "topic jumping
+    atom dependency chains". This requirement affects the definition of topics and atoms.
+--> is this rule even needed? It makes sure that a topic dependency graph can be drawn, but apart from displaying,
+    there are no "bad things" that would happen if topic jumping occurs.
+
+What would a user need?
+- select a topic node
+- have the child nodes presented as a dependency graph (this disallows topic jumping)
+-> but this is only needed for further selection of the "topic of interest".
+    -> v1 would suffice to show a list of sub-nodes and only allow to select those that (hierarchically) have atoms
+        without TODO dependencies
+    - This conflicts with the idea of just selecting a learning goal and then working on any atoms needed for that
+- Just learning means to select a topic and then learn whatever atoms are needed
+-> v1 this is good enough and does not need to sovle the topic jumping problem. Just choose a topic node; this selects
+    all the atoms of that topic subtree AND all atoms from their dependency chains. From these atoms, the user must
+    select one without TODO dependencies.
+
+The atom page could have a button for "I already know about this topic" that lets the user to SKIP one of the nodes
+in the supertopic chain for that atom.

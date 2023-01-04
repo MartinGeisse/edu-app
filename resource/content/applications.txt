@@ -1,0 +1,89 @@
+
+complex numbers; uni-level electrical engineering; programming -> less interesting
+
+can we apply this approach to totally different topics?
+- driver's license
+    e.g. https://fuehrerschein.sueddeutsche.de/quiz/6
+    -> already used this way; could be technically superior and less ads
+    -> would probably need biased exercise selection based on errors, but atoms might be used this way
+        -> other topics will have this too. Might define an "exercises" atom after the others that needs lot of
+            exercise points and uses past answers for question selection; easier alternative: multiple topic-specific
+            exercise atoms that group several previous atoms by topic and grouping has already happened through
+            these atoms.
+- sudoku solving; nonogram solving
+    probably, not that interesting but why not
+- CAST accident analysis
+    -> how? Takes long texts, and the questions are usually multiple-choice questions (checkboxes -- e.g. which of these
+    factors contributed to the accident?)
+        - checkbox questions are better than nothing. Long texts are better than nothing.
+        - even trivial questions seem to better than nothing; see driver's license questions
+            - trivial questions are possible for CAST too, but people who can be targeted by trivial questions will
+                fail at long texts
+        - checkbox questions: what are the three most important flaws in this design / process / whatever?
+            (ex. lists some and three of them are obviously the worst)
+            -> alternative version: THE worst -> can use single-select button matrix; less in-depth exercise but
+                better UI flow
+        - checkbox questions: what steps do you propose to improve safety in this design / ...?
+            -> single-select button could allow one of multiple that are correct
+        - "Notice that it is deemed to be the flight crew’s fault for
+           being confused and also for choosing to use poorly designed software (the FMS or Flight Management
+           System) and not the fault of the software for being confusing and demanding an excessive workload.
+           When accident reports state causes in this way, learning is inhibited and attention is directed to the
+           wrong aspects of the causal scenario."
+           -> checkbox questions could present different views on the same thing - which contributed?
+           -> better way to phrase the initial question: Which view may lead to further insight?
+                - flight crew used FMS even though it is confusing
+                    - intended answer: no, but may actually lead to insight: WHY did they use it anyway?
+                        -> exercise may be fixed by phasing this in a different way
+                - FMS is designed in a way that makes it confusing (yes)
+                    - why is it designed this way? Are there good reasons for that? Is it an artifact of the design
+                        process?
+                - flight crew did not choose the appropriate communication tool (no)
+                    again: WHY? -> phase differently
+                - flight crew's workload is increased by having to choose the communication tool in a stress situation
+                    -> intended: Yes, but does not lead to insight this way
+                - flight crew is not properly trained to handle stress situation (unlcear whether this is correct)
+                    - may lead to insight about training, but may also just assign blame.
+                --> this kind of question could be very good, but is very hard to phrase in a way that makes it a
+                    good question. Should lead to insight, then to recommendations.
+            -> p. 38: identify system hazards and non system hazards
+        - problem: one of the key points of CAST is to ask the right questions. How can this be checked in an exercise?
+            We can present a list of questions and have the user select the "right" ones
+            -> a complex exercise could involve a fictitious accident can multiple rounds of questions, each as
+                checkbox lists.
+        - trivial questions can lead the way to more complex ones
+        - with CAST, reading the handbook is probably necessary
+        - an introduction can be done before reading the handbook
+            - also help with whether reading the handbook is the right choice for the learner
+            -> "why did somebody not read the CAST handbook" is also a question to ask in the analysis of the failure
+                of the learning platform!
+        - "introduction" can be quite complex and lead to much of the content of the handbook
+            THEN, read the whole handbook. It shouldn't be too hard anymore.
+            - map atoms <-> sections of the handbook and provide exercises
+- woodworking
+    - tools + names
+    - use cases for each tool
+    - usage rules + safety measures
+- car repairs
+    -> to do, I don't know anything about this
+    - but would probably be a hot topic if you could actually learn it this way
+- plumbing
+    -> to do, I don't know anything about this
+    - even more doubt that you can learn it this way, but might be hot
+- languages? -> NO
+    - there are probably better platforms for this already
+- specialized programming topics
+    - 6502 assembler, NES / SNES programming
+    -> niche topics, might be added at some point
+- tax topics, similar topics
+    -> very country specific, and lots of similar sources. MIGHT be useful, but very unclear.
+- music
+    - needs to recognize notes, e.g. MIDI keyboard or mic + frequency analysis
+        - special setup or at least strong PC needed
+        - special setup could still be used in musical schools
+        -> niche application but still useful
+    - need not be real-time analysis! 1..3s delay is totally okay
+    - room may affect notes -> musical school setup
+    - training phase: adapt to instrument and room (but easy to use wrong, e.g. change room or instrument and not re-train)
+
+
