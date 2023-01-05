@@ -1,0 +1,88 @@
+(root cause seduction)
+
+In the explosion of a chemical plant in Flixborough, Great Britain, in June 1974, a temporary pipe was
+used to replace a reactor that had been removed to repair a crack. The crack itself was the result of a
+poorly considered process modification. The bypass pipe was not properly designed (the only drawing
+was a sketch on the workshop floor) and was not properly supported (it rested on scaffolding). The jury-
+rigged bypass pipe broke, and the resulting explosion killed 28 people and destroyed the site. The
+accident investigators devoted much of their effort to determining which of two pipes was the first to
+rupture. The British Court of Inquiry concluded that “The disaster was caused by a coincidence of a
+number of unlikely errors in the design and installation of a modification” (the bypass pipe) and that
+“such a combination of errors is very unlikely ever to be repeated.” [245].
+
+Clearly, however, the pipe rupture was only a small part of the cause of this accident. A full
+explanation and prevention of future such losses required an understanding, for example, of the
+management practices of running the Flixborough plant without a qualified engineer on site and
+allowing unqualified personnel to make important engineering modifications without properly
+evaluating their safety, as well as storing large quantities of dangerous chemicals close to potentially
+hazardous areas of the plant and so on. The British Court of Inquiry investigating the accident amazingly
+concluded that “there were undoubtedly certain shortcomings in the day-to-day operations of safety
+procedures, but none had the least bearing on the disaster or its consequences and we do not take time
+with them.” Fortunately, others ignored this overly narrow view, and Flixborough led to major changes
+in the way hazardous facilities were allowed to operate in Britain.
+
+----------------------------------------------------
+
+(hindsight bias)
+
+After an accident involving the overflow of SO2 (sulfur dioxide) in a chemical plant, the investigation
+report concluded that “The Board Operator should have noticed the rising fluid levels in the tank.”
+[emphasis added] Sounds bad, right? Let’s examine that conclusion.
+The operator had turned off the control valve allowing fluid to flow into the tank, and a light came on
+saying it was closed. All the other clues that the operator had in the control room showed that the valve
+had closed, including the flow meter, which showed that no fluid was flowing. The high-level alarm in
+the tank did not sound because it had been broken for 18 months and was never fixed. There was no
+indication in the report about whether the operators knew that the alarm was not operational. Another
+alarm that was supposed to detect the presence of SO2 in the air also did not sound until later.
+One alarm did sound, but the operators did not trust it as it had been going off spuriously about once
+a month and had never in the past signaled anything that was actually a problem. They thought the
+alarm resulted simply from the liquid in the tank tickling the sensor. While the operators could have
+used a special tool in the process control system to investigate fluid levels over time (and thus
+determine that they were rising), it would have required a special effort to go to a page in the
+automated system to use the non-standard tool. There was no reason to do so (it was not standard
+practice) and there were, at the time, no clues that there was a problem. At the same time, an alarm
+that was potentially very serious went off in another part of the plant, which the operators investigated
+instead. As a result, the operators were identified in the accident report as the primary cause of the SO2
+release.
+It’s interesting that the report writers could not, even after careful study after the release, explain
+why the valve did not close and the flow meter showed no flow; in other words, why the tank was filling
+when it should not have been. But the operators were expected to have known this without any visible
+clues at the time and with competing demands on their attention. This is a classic example of the
+investigators succumbing to hindsight bias. The report writers knew, after the fact, that SO2 had been
+released and assumed the operators should have somehow known too.
+
+----------------------------------------------------
+
+superficial treatment of human error
+
+As just one example, many accident investigations find that operators had prior knowledge of
+similar previous occurrences of the events but never reported them in the incident reporting system. In
+many cases, the operators did report them to the engineers who they thought would fix the problem,
+but the operators did not use the official incident-reporting system. A conclusion of the report then is
+that a cause of the accident was the operators not using the incident-reporting system, which leads to a
+recommendation to make new rules to enforce that operators always use it and perhaps recommend
+providing additional training in its use.
+
+In most of these cases, however, there is no investigation of why the operators did not use the
+official reporting system. Often their behavior results from the system being hard to use, including
+requiring the operators to find a seldom-used and hard to locate website with a clunky interface.
+Reporting events in this way may take a lot of time. The operators never see any results or hear anything
+back and assume the reports are going into a black hole. It is not surprising then that they instead report
+the problem to people who they think can and will do something about it. Fixing the problems with the
+design of the reporting system will be much easier and more effective than simply emphasizing to
+operators that they have to use it.
+
+-----
+
+superficial treatment of human error
+
+A system’s view of human error starts from the assumption that all behavior is affected by the
+context (system) in which it occurs. Therefore, the best way to change human behavior is to change the
+system in which it occurs. That involves examining the design of the equipment that the operator is
+using, carefully analyzing the usefulness and appropriateness of the procedures that operators are given
+to follow, identifying any goal conflicts and production pressures, evaluating the impact of the safety
+culture in the organization on the behavior, and so on.
+Violating safety rules or procedures is interesting as it is commonly considered prima facie evidence
+of operator error as the cause of an accident. The investigation rarely goes into why the rules were
+violated. In fact, rules and procedures put operators and workers into an untenable situation where they
+are faced with a “following procedures” dilemma. Consider the model in Figure 4.

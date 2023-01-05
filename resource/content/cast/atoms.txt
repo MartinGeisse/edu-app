@@ -1,0 +1,82 @@
+
+goals of CAST
+- understand who to blame for an accident
+    irrelevant for CAST
+- understand who is responsible for an accident
+    irrelevant for CAST
+- understand who is going to pay for the damage from an accident
+    irrelevant for CAST
++ learn from an accident to prevent future accidents
+- find the root cause of an accident
+    according to CAST, an accident does not have a (single) "root cause"
++ understand the multiple (precursors?) of an accident and their relationship
+
+when can CAST be applied?
+- proactively, before an accident has occurred
+    CAST analyzes an accident that has actually occurred
++ after an accident has occurred
++ after monetary loss has occurred
++ after damage to company reputation has occurred
+- for a potential accident that is similar to one that has actually occurred
+    this would analyze a theoretical, imagined accident without knowing whether it can occur at all
+        (? check if CAST can say anything about this, and delete the answer if there is a chance that someone
+            will misunderstand it)
+
+definitions:
+accident: An undesired, unacceptable, and unplanned event that results in a loss. For short, simply a loss.
+System Goals: the reason the system was created in the first place
+System Constraints: the ways that the goals can acceptably be achieved
+Incident or Near-Miss: An undesired, unacceptable, and unplanned event that does not result in a
+    loss, but could have under different conditions or in a different environment.
+Hazard or vulnerability: A system state or set of conditions that, together with specific environmental
+    conditions, can lead to an accident or loss.
+
+system state (hazard) + state of environment -> loss
+system state is under control of system designers / engineers / operators.
+environment is not.
+
+can CAST be applied if too many incidents occur to investigate them all?
+- no, another method is needed to handle this
+- yes, one should take the time to investigate them all
++ yes, investigate a few of them and the number will go down drastically
+
+limitations of other methods (each 1+ atoms, see todo.txt)
+- root cause seduction and oversimplification of causal explanations
+    - looking for single cause / few causes; looking for simple answers
+    - makes it easier to devise a response to a loss
+    - provides sense of control
+    - leads to fixing the symptoms
+    - example: investigates which pipe broke first; does not investigate management practices
+- hindsight bias
+    - clues in reports: "he/she should have…", "he/she could have"
+    - to avoid hindsight bias:
+        - do not look at what people did wrong
+        - assume that they were trying to do the right thing
+        - understand why doing what they did made sense to them
+- superficial treatment of human error
+    - clue: belief that operator error is the cause of most incidents and accidents
+    - wrong responses:
+        - add constraints and rules for operators (may be impossible or unrealistic; may lead to an
+            accident themselves)
+        - add automation and marginalize the operators (moves operators farther from the process they are controlling;
+            may introduce errors this way)
+        ->
+        all these ignore or downplay systemic factors that led to the operator behavior and the accident
+    - p. 17, fig 4 (system no longer matches original specifications, including training, leading to operator's
+        dilemma whether to deal with the actual system or follow training -> both may lead to errors -> operator is blamed either way
+        operator must perform experiments to understand the actual system
+    -> re-read this section, probably leads to several atoms
+- focus on blame
+    - leads to
+        - people hiding (e.g. not telling) information that could help understand the accident
+        - blaming those that were present when the accident occurred
+    - exercise p. 19
+
+- use of models of causality that do not fit today’s world
+
+
+
+
+
+
+
