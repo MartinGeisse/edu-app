@@ -1,4 +1,4 @@
-export function checkIntegerComplex(real: number, imaginary: number): (answer: string) => boolean {
+export function makeIntegerComplexValidator(real: number, imaginary: number): (answer: string) => boolean {
     return (answer: string) => {
         answer = answer.replace(" ", "");
         let match = answer.match(/(\d+)\+(\d+)i/);

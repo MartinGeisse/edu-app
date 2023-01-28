@@ -1,6 +1,6 @@
 import {Atom} from "../atom/Atom";
 import {randomInt} from "../util/randomInt";
-import {checkIntegerComplex} from "./checkIntegerComplex";
+import {makeIntegerComplexValidator} from "./makeIntegerComplexValidator";
 import {makeDescriptionAndTextFieldExercise} from "../exercise/makeDescriptionAndTextFieldExercise";
 import {
     makeDescriptionAndShuffledRadioLikeButtonMatrix
@@ -22,7 +22,7 @@ export const corpusArray: Atom[] = [
             const c = randomInt(10);
             const d = randomInt(10);
             const description = `What is (${a}+${b}i) + (${c} + ${d}i)?`;
-            const answerValidator = checkIntegerComplex(a + c, b + d);
+            const answerValidator = makeIntegerComplexValidator(a + c, b + d);
             return makeDescriptionAndTextFieldExercise(description, answerValidator);
         },
     },
