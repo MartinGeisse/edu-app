@@ -54,10 +54,41 @@ export const corpusArray: Atom[] = [
         content: "foo",
         exerciseGenerator: () => {
             // const wrongAnswers = ["a", "b", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"];
-            const rightAnswer = "c";
+            // const rightAnswer = "c";
+            // const labelSize = "veryShort";
 
-            const wrongAnswers = ["w1", "w2", "w3", "w4", "w5", "w6", "w7", "w8", "w9", "w10", "w11", "w12"];
-            return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", rightAnswer, wrongAnswers, "singleSymbol");
+            // const wrongAnswers = ["w1", "w2", "w3", "w4", "w5", "w6", "w7", "w8", "w9", "w10", "w11", "w12"];
+            // const rightAnswer = "c";
+            // const labelSize = "veryShort";
+
+            // const wrongAnswers = ["efkwjai", "qkdjwif", "wiofjeiuwh", "fewf", "ewfiwiuhi", "ewuiewhuie", "ewjfhewuifh", "wefewf", "ewgwgwe", "ewggwewwe", "ewgweweg", "efwew2"];
+            // const rightAnswer = "correct";
+            // const labelSize = "short";
+
+            // const wrongAnswers = [
+            //     "efkwjafefiowjefiojei", "qkdjewifjweiofjewiowif", "wioewfijwiofjwoifjeiuwh",
+            //     "fewf", "ewfiwiuweoifjweiofhi", "ewuiewhewofijeiowuie",
+            //     "ewjfheewfwopopwewuifh", "ewoifjiowejfoiewjio", "ewoifjweiofjweiofjewoijfeoi",
+            //     "ewggwewwe", "ewgweweg", "efwew2"
+            // ];
+            // const rightAnswer = "correct";
+            // const labelSize = "medium";
+
+            const wrongAnswers = [
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+                "Lorem ipsum dolor sit amet",
+            ];
+            const rightAnswer = "correct";
+            const labelSize = "veryLong";
+
+            return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", rightAnswer, wrongAnswers, labelSize);
         },
     },
     {
