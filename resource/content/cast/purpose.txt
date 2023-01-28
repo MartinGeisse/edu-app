@@ -1,0 +1,49 @@
+What is the purpose of using edu-app for learning CAST?
+- to be a preparation / teaser for learning from the book?
+- to be better or equal to learning from the book?
+- to be worse to learning from the book, but appropriate for a wider audience?
+
+Why is this important?
+- it affects how complete this content must be (preparation --> need not be complete; preparation / may-be-worse -->
+    smaller extent is okay)
+- we cannot fully present the stories from the CAST book other by copying them, which (1) violates copyright and (2)
+    runs counter to the idea of edu-app
+
+-->
+The fact that we cannot fully present the stories indicates that the CAST book should be required for anybody who
+actually wants to do a CAST analysis. edu-app can prepare for that, and can prepare people to help with a CAST analysis
+but not perform one on their own.
+
+    Unfortunately, here we cannot present content that is actually superior to what exists, and at the same time
+    we don't know if edu-app is inferior to existing concepts because what blocks us is, party, copyright. OTOH,
+    there is a strong indication that edu-app cannot replace existing prose descriptions.
+
+Ideas to counter this problem:
+- fictional accidents (avoid copyright, possibly at the cost of credibility; but we don't discuss this problem inside
+    the atoms so only few readers would notice, and we refer them to the CAST handbook afterwards)
+- step by step development of the problem instead of one big text that contains all aspects
+
+------------------------------------
+
+The purpose of edu-app is to provide value that would not exist without it. This could be:
+- people being able to do a CAST analysis, or at least something into that direction, who
+    - would not read the book due to being too much to read, or too theoretical
+    - would read the book but find it too hard (this is hard to imagine, but maybe it happens)
+    - would not read the book because it is "not fun"
+- people being able to support a CAST analysis who would not learn enough to do one on their own
+- people being sensitized for CAST-like thinking, even when no CAST analysis happens around them
+- people being made aware of CAST who "spread the word"
+
+
+Replacing the book isn't value that would exist without edu-app, in particular because, for such complex topics, books
+cannot be replaced adequately. So the right approach is to augment the book.
+- fictitious accidents are okay. Understanding actual, real-world accidents fully runs counter to the idea of edu-app,
+    though understanding them fully is what CAST is all about. So edu-app has to go there step by step. Fictitious
+    stories also avoid copyright issues (since the only useful source for them is the CAST book).
+- edu-app has to analyse singular parts to fit its atom format. The format should concentrate on one aspect of CAST
+    at a time, not on one aspect of an accident (doing so would run counter to the idea of CAST and systems theory).
+
+
+
+
+

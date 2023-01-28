@@ -10,6 +10,10 @@ goals of CAST
 - find the root cause of an accident
     according to CAST, an accident does not have a (single) "root cause"
 + understand the multiple (precursors?) of an accident and their relationship
+-->
+single checkbox exercise
+
+-----------------------------------------------------------------------------------------------------------------------
 
 when can CAST be applied?
 - proactively, before an accident has occurred
@@ -21,6 +25,10 @@ when can CAST be applied?
     this would analyze a theoretical, imagined accident without knowing whether it can occur at all
         (? check if CAST can say anything about this, and delete the answer if there is a chance that someone
             will misunderstand it)
+-->
+single checkbox exercise
+
+-----------------------------------------------------------------------------------------------------------------------
 
 definitions:
 accident: An undesired, unacceptable, and unplanned event that results in a loss. For short, simply a loss.
@@ -30,29 +38,78 @@ Incident or Near-Miss: An undesired, unacceptable, and unplanned event that does
     loss, but could have under different conditions or in a different environment.
 Hazard or vulnerability: A system state or set of conditions that, together with specific environmental
     conditions, can lead to an accident or loss.
-
+    under control of system designers / engineers / operators
+environment (TODO)
+    not under control of system designers / engineers / operators
 system state (hazard) + state of environment -> loss
-system state is under control of system designers / engineers / operators.
-environment is not.
+--> multiple radio (or radio-like matrix) categorization questions: What is this? (choose one of the above)
+    an (explosion | fire) in a chemical plant with (injured | dead) people -> accident
+PROBLEM: near-miss and hazard are not clearly separated! e.g. fire without injured people and with moderate damage
+PROBLEM: near-miss and hazard can lead to loss of reputation and are then an accident
+    hazard: only environmental factors are missing to make it an accident.
+        But "incident" is similarly defined.
+
+-----------------------------------------------------------------------------------------------------------------------
 
 can CAST be applied if too many incidents occur to investigate them all?
 - no, another method is needed to handle this
 - yes, one should take the time to investigate them all
 + yes, investigate a few of them and the number will go down drastically
+--> single checkbox exercise
 
-limitations of other methods (each 1+ atoms, see todo.txt)
+-----------------------------------------------------------------------------------------------------------------------
+
 - root cause seduction and oversimplification of causal explanations
     - looking for single cause / few causes; looking for simple answers
     - makes it easier to devise a response to a loss
     - provides sense of control
     - leads to fixing the symptoms
+        guess: the fake "root cause" has itself multiple causes, so analysis stops there
     - example: investigates which pipe broke first; does not investigate management practices
+    - TODO.txt
+-->
+    could be: "which of these cases suffered from root cause seduction?"
+    could be: "which of these identified causes are actually fake causes resulting from root cause seduction?"
+    --> latter is better and includes the former
+
+possibly a follow-up atom due to different, harder exercise structure:
+    could be: description of an accident. Which of the following should be investigated as possibly contributing to
+        the accident? (list some that are correct, some that did not occur in the story and some that are irrelevant
+            and possible contributors to root cause seduction). Grading should definitely contain an explanation.
+
+The edu-app (atom) format is particularly suited to learn this in "layers", from simple to complex, or part by part,
+and not all at once. Possible splittings:
+- layers
+    multiple causes, not one
+    fixing symptoms (that don't have a single obvious "predecessor" cause)
+- parts
+    - ?
+- less relevant
+    - "seduction" part, i.e. why people resort to "finding a root cause"
+
+Exercise format: It would be nice to have an "open" exercise that would allow many possible inputs, but few of them
+are correct. This solves the problem that multiple-choice exercises more or less present the answer to the user and
+just ask, "is this correct". Ideas:
+- matrix: combine X rows by Y columns, with a checkbox at each cell
+    problem: easy to misunderstand the meaning of a single checkbox -> false positives / negatives
+- sentence builder: allows very free-form input but avoids the "parsing problem"
+    problem: easily degenerates to a "tree of checkboxes" -> could just use a simple checkbox exercise instead
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
 - hindsight bias
     - clues in reports: "he/she should have…", "he/she could have"
     - to avoid hindsight bias:
         - do not look at what people did wrong
         - assume that they were trying to do the right thing
         - understand why doing what they did made sense to them
+-->
+
+-----------------------------------------------------------------------------------------------------------------------
+
+limitations of other methods (each 1+ atoms, see todo.txt)
 - superficial treatment of human error
     - clue: belief that operator error is the cause of most incidents and accidents
     - wrong responses:

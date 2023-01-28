@@ -1,3 +1,13 @@
+----------------------------------------------------------------------------------------------------------------------------------
+further sources to read
+----------------------------------------------------------------------------------------------------------------------------------
+
+https://www.amazon.ca/Basic-Electricity-Bureau-Naval-Personnel/dp/1420971018/
+https://www.allaboutcircuits.com/textbook/
+
+----------------------------------------------------------------------------------------------------------------------------------
+applications
+----------------------------------------------------------------------------------------------------------------------------------
 
 complex numbers; uni-level electrical engineering; programming -> less interesting
 
@@ -67,6 +77,15 @@ can we apply this approach to totally different topics?
 - car repairs
     -> to do, I don't know anything about this
     - but would probably be a hot topic if you could actually learn it this way
+    - a few simple steps are easy to explain and would go a long way
+        - refill oil, wiper fluid, coolant
+            - know symbols
+        - change tires; adjust tire pressure sensor
+        - fix scratches
+        - change wipers
+        --> but these are more "how-to" steps that can be found with a simple google search
+        - edu-app intends to go one step deeper: provide some basic knowledge; not the same level as professional training
+            but also beyond a simple how-to. Should explain how things work and how to perform more complex tasks
 - plumbing
     -> to do, I don't know anything about this
     - even more doubt that you can learn it this way, but might be hot
@@ -85,5 +104,126 @@ can we apply this approach to totally different topics?
     - need not be real-time analysis! 1..3s delay is totally okay
     - room may affect notes -> musical school setup
     - training phase: adapt to instrument and room (but easy to use wrong, e.g. change room or instrument and not re-train)
+
+
+There are two key points to edu-app:
+- a new learning scheme that emphasizes short lessons (atoms) and exercises with each atom, the more hands-on the better
+    - this is lots of work but straightforward
+- applying computer-based learning to areas where it wasn't applicable before
+    - this is the hard part, so focus on this!
+    - this is also the rewarding part because nobody thinks it can be done.
+
+Beispiele von Lehrplänen:
+- Lehrplan für die Berufsschule; Fachklassen Zimmerer/Zimmerin; Unterrichtsfächer: Wand- und Deckenkonstruktionen, Dachkonstruktionen, Innenausbau
+    Jahrgangsstufe 11
+        Wand- und Deckenkonstruktionen
+            Moderne Wand- und Deckenkonstruktionen planen und herstellen
+                Holzrahmenbau, Brettstapeldecken, Brettsperrholzelemente, Holz-Beton-Verbundsysteme
+                Wärmebrücken, Feuchteschutz
+        Dachkonstruktionen
+            Dachtragwerke mit Dachaufbauten planen und herstellen
+            Dacheindeckungen mit Durchdringungen planen und herstellen
+        Innenausbau
+            Trockenbaukonstruktionen planen und herstellen
+            Zweiläufige Treppen planen und herstellen
+    Jahrgangsstufe 12
+        Wand- und Deckenkonstruktionen
+            Modernisierungen und Erweiterungsbauten planen und herstellen
+            Terrassen und Balkone planen und herstellen
+        Dachkonstruktionen
+            Walmdachtragwerke planen und herstellen
+            Hallentragwerke fertigen und montieren
+        Innenausbau
+            Gewendelte Treppen planen und herstellen
+    andere Fächer 
+        Grundlagen Holzprodukte
+        Gründungen und Holzbaukonstruktionen
+    Zusätzlich
+        Qualitätssicherung
+        Kundenorientierung
+        rechnergestützte Fertigungstechniken (CAD, CNC)
+        Arbeitssicherheit
+        Gesundheitsschutz
+        Umweltschutz (Zimmerer: energieeffiziente Gebäude; nachwachsende Rohstoffe)
+        Gesetze, Normen, technische Vorschriften einschlägige Fachregeln
+    Unterstützend
+        Mathe
+        Naturwissenschaften
+            - genannt insbesondere SI-Einheiten
+            - Sonderpunkt: die Materialien kennen, mit denen man arbeitet
+            - Beispiel Zimmerer: "Lastannahmen, Kräften und Lastabtragung durch Verbindungsmittel"
+                -> Grundverständnis, keine statischen Berechnungen
+        Geschichte des jeweiligen Handwerks
+
+----------------------------------------------------------------------------------------------------------------------------------
+applying computer-based learning to areas where it wasn't applicable before
+----------------------------------------------------------------------------------------------------------------------------------
+
+About this section:
+- List is above, this is about fundamentals
+- Also note that is is meant to augment, not replace, traditional learning. It is specifically meant to replace those parts of
+    traditional learning that are better solved by computers, leaving teachers more time for the actually relevant parts of teaching.
+- edu-app is also meant to prepare for professional traning and to encourage people who consider it but are afraid, as well as
+    those who do not even yet consider it.
+- Ideally, edu-app should also help people who do not seek professional traning because even partial knowledge helps
+
+Techniques -- which can be applied where?
+- German driver's license test shows specific situations and asks what you have to do now.
+- crafts / trades etc.:
+    - associate tool images and names
+    - associate tool images / names and usage
+    - associate tool images / names and safety considerations
+    - Show something that someone else built; tell *if* there is a problem and what it is
+    - Show a problem, ask which tool is needed
+    - actual people learning a trade are probably worried about *other* stuff such as math
+        - but this is covered elsewhere a lot
+        - and we want to reach people NOT already learning it
+    - legal
+        - obviously ask what is allowed and what isn't
+        - ask *why* things aren't allowed. Understanding this helps remember what is allowed.
+            - e.g. electrical: what would happen if you switch N instead of L?
+                - Checkboxes; mix of right and wrong answers
+(edu-app technical)
+    - obviously need the general set of checkbox/radio questions
+    - pick-and-place editors, probably grid based (drag n drop or diablo-like -- this seems more like a personal preference; differs on mobile)
+        mobile-first (target audience), so diablo-like is more appropriate because we need drag n drop for scrolling
+        - with "inventory"
+        - with inventory contents that are wrong to use for the exercise
+        - with fixed parts "in place" as part of the exercise
+
+
+Beispiel o.g. Lehrplan Zimmerer
+- Mathe, Naturwissenschaften, Vorschriften usw. hier ausgenommen -- die sind Easy-Mode für so eine Plattform
+    - trotzdem sinnvoll, sie aufzunehmen, aber die sind kein "hartes Problem" was ich jetzt hier angehen will
+- o.g. Lehrplan ist aus der Berufsschule. Was da drinsteht ist immer noch ganz viel "Easy Mode", weil Theorie
+    - idealerweise sollte das mit Praxis durchsetzt sein. Ich will hier nicht die Berufsschule optimieren, sondern den gesamten Lernprozess.
+    - also wird ab hier nur noch der Teil genannt, der über die reine Theorie hinausgeht
+- Gesetze, aktuelle technische Regeln: müsste man jetzt im einzelfall Kennen
+    - getante Arbeit mit Fehler zeigen; man muss erkennen, was der Fehler ist (Bilder)
+    - Problembeschreibungen. Fragen: Was kann die Ursache sein? Wie findet man es heraus, was die Ursache ist?
+- Moderne Wand- und Deckenkonstruktionen planen und herstellen
+    - Konstruktion entwickeln
+        - idealerweise von 0 aus, nicht multiple-choice o.ä.
+        - unklar, wieviel Freiheit man da hat
+    - Dokumentation zu einer Konstruktion (Holzart und Holzqualität, Unterkonstruktion, Befestigungsmittel)
+        - schlechte Dokumentationen erkennen, z.B. 5 Dokus zeigen, welche 3 davon sind schlecht?
+    - vertikale und horizontale Lastabtragung (Querpressung, Gebäudeaussteifung, Wandverankerung).
+        - auch wieder Bilder wo es falsch gemacht wurde; fehler erkennen; gut von schlecht unterscheiden
+        - besser noch wäre selbst planen
+            - notfalls ist das der Teil, wo man einen Lehrer braucht, aber besser noch wäre, wenn der für Probleme frei wäre
+    - Deckenbalken dimensionieren
+        - im Prinzip eine Matheaufgabe, daher leicht machbar
+    - passende Verbinder auswählen
+        - Klingt relativ einfach machbar
+        - Problem zeigen, man muss Auswahl treffen
+    - "Sie nutzen technische Dokumente der Hersteller und montieren die Verbinder (Maschineneinsatz, Fräs- und Montageschablonen)."
+        - praktischen Maschineneinsatz kann eduapp nicht, sowas geht vielleicht in 50 Jahren
+        - Schablonen erstellen geht, z.B. auf Raster zeichnen mit Zeichenprogramm; richtige von falschen unterscheiden
+        - Zu den Maschinen geht Bedienung, Sicherheit usw.
+    - beurteilen die Funktionsfähigkeit der Konstruktionen (Temperaturverlauf) und die handwerklichen Bauleistungen (Blower-Door-Test)
+        - Durchführung und Auswertung der Tests geht theoretisch
+
+
+
 
 
