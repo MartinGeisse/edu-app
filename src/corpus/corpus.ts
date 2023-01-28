@@ -1,15 +1,16 @@
 import {Atom} from "../atom/Atom";
 import {randomInt} from "../util/randomInt";
 import {makeIntegerComplexValidator} from "./makeIntegerComplexValidator";
-import {makeDescriptionAndTextFieldExercise} from "../exercise/makeDescriptionAndTextFieldExercise";
+import {makeTextFieldExercise} from "../exercise/makeTextFieldExercise";
 import {
-    makeDescriptionAndShuffledRadioLikeButtonMatrix
-} from "../exercise/makeDescriptionAndShuffledRadioLikeButtonMatrix";
+    makeShuffledRadioLikeButtonMatrix
+} from "../exercise/makeShuffledRadioLikeButtonMatrix";
 import {
-    makeDescriptionAndShuffledCheckboxLikeButtonMatrix
-} from "../exercise/makeDescriptionAndShuffledCheckboxLikeButtonMatrix";
+    makeShuffledCheckboxLikeButtonMatrix
+} from "../exercise/makeShuffledCheckboxLikeButtonMatrix";
 import {AtomContent} from "../content/AtomContent";
 import {Line} from "../content/Drawing";
+import {makeDescriptionAnd} from "../exercise/makeDescriptionAnd";
 
 export const corpusArray: Atom[] = [
     {
@@ -21,9 +22,10 @@ export const corpusArray: Atom[] = [
             const b = randomInt(10);
             const c = randomInt(10);
             const d = randomInt(10);
-            const description = `What is (${a}+${b}i) + (${c} + ${d}i)?`;
-            const answerValidator = makeIntegerComplexValidator(a + c, b + d);
-            return makeDescriptionAndTextFieldExercise(description, answerValidator);
+            return makeDescriptionAnd(
+                `What is (${a}+${b}i) + (${c} + ${d}i)?`,
+                makeTextFieldExercise(makeIntegerComplexValidator(a + c, b + d)),
+            );
         },
     },
     {
@@ -44,8 +46,10 @@ export const corpusArray: Atom[] = [
             },
         ],
         exerciseGenerator: () => {
-            const description: AtomContent = [];
-            return makeDescriptionAndTextFieldExercise("Egal was du antwortest, ist eh falsch.", answer => false);
+            return makeDescriptionAnd(
+                "Egal was du antwortest, ist eh falsch.",
+                makeTextFieldExercise(answer => false),
+            );
         },
     },
     {
@@ -88,7 +92,7 @@ export const corpusArray: Atom[] = [
             const rightAnswer = "correct";
             const labelSize = "veryLong";
 
-            return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", rightAnswer, wrongAnswers, labelSize);
+            return makeDescriptionAnd("bla", makeShuffledRadioLikeButtonMatrix(rightAnswer, wrongAnswers, labelSize));
         },
     },
     {
@@ -96,7 +100,7 @@ export const corpusArray: Atom[] = [
         title: "Checkbox-like button matrix test",
         content: "foo",
         exerciseGenerator: () => {
-            return makeDescriptionAndShuffledCheckboxLikeButtonMatrix("bla", ["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"], "medium");
+            return makeDescriptionAnd("bla", makeShuffledCheckboxLikeButtonMatrix(["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"], "medium"));
         },
     },
 ];

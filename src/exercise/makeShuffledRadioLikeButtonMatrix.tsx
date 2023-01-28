@@ -10,8 +10,7 @@ import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSiz
  * identical character-by-character (or a comparison function might be added), AND (2) this gives us fewer choices
  * because we cannot add another wrong answer as a replacement at this point.
  */
-export function makeDescriptionAndShuffledRadioLikeButtonMatrix(
-    description: string,
+export function makeShuffledRadioLikeButtonMatrix(
     correctAnswer: string,
     wrongAnswers: string[],
     labelSize: ButtonMatrixLabelSize,
@@ -30,7 +29,6 @@ export function makeDescriptionAndShuffledRadioLikeButtonMatrix(
         }
 
         return <div>
-            <div>{description}</div>
             <ButtonMatrix disabled={props.disabled} labelSize={labelSize} elements={taggedAnswers.map(taggedAnswer => ({
                 label: taggedAnswer[0],
                 onClick: () => onButtonClicked(taggedAnswer[1]),

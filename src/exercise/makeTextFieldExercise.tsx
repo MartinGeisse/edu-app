@@ -1,7 +1,7 @@
 import {Exercise, ExerciseProps} from "../atom/Atom";
 import {useState} from "react";
 
-export function makeDescriptionAndTextFieldExercise(description: string, answerValidator: (answer: string) => boolean): Exercise {
+export function makeTextFieldExercise(answerValidator: (answer: string) => boolean): Exercise {
     return (props: ExerciseProps) => {
         const [answer, setAnswer] = useState("");
         const [feedbackColor, setFeedbackColor] = useState("");
@@ -21,13 +21,13 @@ export function makeDescriptionAndTextFieldExercise(description: string, answerV
 
         return <div>
             <form onSubmit={onSubmit}>
-                <div>{description}</div>
                 <div>
                     <input
                         type="text"
                         value={answer}
                         disabled={props.disabled}
                         onChange={event => setAnswer(event.target.value)}
+                        autoFocus
                     />
                 </div>
                 {!feedbackText && <div><input type="submit" value="submit" /></div>}

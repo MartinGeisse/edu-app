@@ -10,8 +10,7 @@ import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSiz
  * identical character-by-character (or a comparison function might be added), AND (2) this gives us fewer choices
  * because we cannot add another wrong answer as a replacement at this point.
  */
-export function makeDescriptionAndShuffledCheckboxLikeButtonMatrix(
-    description: string,
+export function makeShuffledCheckboxLikeButtonMatrix(
     correctAnswers: string[],
     wrongAnswers: string[],
     labelSize: ButtonMatrixLabelSize,
@@ -38,7 +37,6 @@ export function makeDescriptionAndShuffledCheckboxLikeButtonMatrix(
 
         const elements = taggedAnswers.map(taggedAnswer => ({label: taggedAnswer[0]}));
         return <div>
-            <div>{description}</div>
             <ToggleButtonMatrix elements={elements} disabled={props.disabled} toggleState={toggleState} setToggleState={setToggleState} labelSize={labelSize} />
             <br />
             {!feedbackText && <Button variant="contained" onClick={() => onSubmit()} style={{width: "100%"}}>submit</Button>}
