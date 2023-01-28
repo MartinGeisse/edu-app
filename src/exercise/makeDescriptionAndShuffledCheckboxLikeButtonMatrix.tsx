@@ -1,7 +1,9 @@
 import {Exercise, ExerciseProps} from "../atom/Atom";
 import {useState} from "react";
-import {Button, Grid, ToggleButton} from "@mui/material";
+import {Button} from "@mui/material";
 import {shuffle} from "../util/shuffle";
+import {ToggleButtonMatrix} from "../components/exercise/ToggleButtonMatrix";
+import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSize";
 
 /**
  * TODO: might automatically remove "wrong" answers that are identical to the correct answer, but (1) they must be
@@ -12,6 +14,7 @@ export function makeDescriptionAndShuffledCheckboxLikeButtonMatrix(
     description: string,
     correctAnswers: string[],
     wrongAnswers: string[],
+    labelSize: ButtonMatrixLabelSize,
 ): Exercise {
     const taggedCorrectAnswers: [string, boolean][] = correctAnswers.map(a => [a, true]);
     const taggedWrongAnswers: [string, boolean][] = wrongAnswers.map(a => [a, false]);
@@ -20,12 +23,6 @@ export function makeDescriptionAndShuffledCheckboxLikeButtonMatrix(
         const [toggleState, setToggleState] = useState<boolean[]>(Array(taggedAnswers.length).fill(false));
         const [feedbackColor, setFeedbackColor] = useState("");
         const [feedbackText, setFeedbackText] = useState("");
-
-        function onToggle(index: number) {
-            const newToggleState = [...toggleState];
-            newToggleState[index] = !newToggleState[index];
-            setToggleState(newToggleState);
-        }
 
         function onSubmit() {
             let correct = true;
@@ -39,21 +36,10 @@ export function makeDescriptionAndShuffledCheckboxLikeButtonMatrix(
             props.reportResult(correct);
         }
 
+        const elements = taggedAnswers.map(taggedAnswer => ({label: taggedAnswer[0]}));
         return <div>
             <div>{description}</div>
-            <Grid container>
-                {taggedAnswers.map((taggedAnswer, index) => <Grid item xs={12} sm={6} md={3} key={index} style={{marginTop: "5px"}}>
-                    <ToggleButton
-                        value={1}
-                        selected={toggleState[index]}
-                        onClick={() => onToggle(index)}
-                        disabled={props.disabled}
-                        style={{width: "100%"}}
-                    >
-                        {taggedAnswer[0]}
-                    </ToggleButton>
-                </Grid>)}
-            </Grid>
+            <ToggleButtonMatrix elements={elements} disabled={props.disabled} toggleState={toggleState} setToggleState={setToggleState} labelSize={labelSize} />
             <br />
             {!feedbackText && <Button variant="contained" onClick={() => onSubmit()} style={{width: "100%"}}>submit</Button>}
             <div style={{color: feedbackColor}}>{feedbackText}</div>

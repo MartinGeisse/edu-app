@@ -53,7 +53,11 @@ export const corpusArray: Atom[] = [
         title: "Radio-like button matrix test",
         content: "foo",
         exerciseGenerator: () => {
-            return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", "cor", ["w1", "w2", "w3", "w4", "w5"]);
+            // const wrongAnswers = ["a", "b", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"];
+            const rightAnswer = "c";
+
+            const wrongAnswers = ["w1", "w2", "w3", "w4", "w5", "w6", "w7", "w8", "w9", "w10", "w11", "w12"];
+            return makeDescriptionAndShuffledRadioLikeButtonMatrix("bla", rightAnswer, wrongAnswers, "singleSymbol");
         },
     },
     {
@@ -61,7 +65,7 @@ export const corpusArray: Atom[] = [
         title: "Checkbox-like button matrix test",
         content: "foo",
         exerciseGenerator: () => {
-            return makeDescriptionAndShuffledCheckboxLikeButtonMatrix("bla", ["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"]);
+            return makeDescriptionAndShuffledCheckboxLikeButtonMatrix("bla", ["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"], "medium");
         },
     },
 ];

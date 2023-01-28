@@ -3,6 +3,7 @@ import {useState} from "react";
 import {Button} from "@mui/material";
 import {shuffle} from "../util/shuffle";
 import {ButtonMatrix} from "../components/exercise/ButtonMatrix";
+import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSize";
 
 /**
  * TODO: might automatically remove "wrong" answers that are identical to the correct answer, but (1) they must be
@@ -13,6 +14,7 @@ export function makeDescriptionAndShuffledRadioLikeButtonMatrix(
     description: string,
     correctAnswer: string,
     wrongAnswers: string[],
+    labelSize: ButtonMatrixLabelSize,
 ): Exercise {
     const taggedCorrectAnswer: [string, boolean] = [correctAnswer, true];
     const taggedWrongAnswers: [string, boolean][] = wrongAnswers.map(a => [a, false]);
@@ -29,7 +31,7 @@ export function makeDescriptionAndShuffledRadioLikeButtonMatrix(
 
         return <div>
             <div>{description}</div>
-            <ButtonMatrix disabled={props.disabled} elements={taggedAnswers.map(taggedAnswer => ({
+            <ButtonMatrix disabled={props.disabled} labelSize={labelSize} elements={taggedAnswers.map(taggedAnswer => ({
                 label: taggedAnswer[0],
                 onClick: () => onButtonClicked(taggedAnswer[1]),
             }))} />

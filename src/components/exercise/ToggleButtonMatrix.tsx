@@ -1,5 +1,6 @@
 import {ToggleButton} from "@mui/material";
 import {ButtonMatrixGrid} from "./ButtonMatrixGrid";
+import {ButtonMatrixLabelSize} from "./ButtonMatrixLabelSize";
 
 export type ToggleButtonMatrixElement = {
     label: string;
@@ -10,9 +11,10 @@ export type ToggleButtonMatrixProps = {
     disabled: boolean;
     toggleState: boolean[];
     setToggleState: (state: boolean[]) => void;
+    labelSize: ButtonMatrixLabelSize;
 };
 
-export function ToggleButtonMatrix({ elements, disabled, toggleState, setToggleState }: ToggleButtonMatrixProps) {
+export function ToggleButtonMatrix({ elements, disabled, toggleState, setToggleState, labelSize }: ToggleButtonMatrixProps) {
 
     function onToggle(index: number) {
         const newToggleState = [...toggleState];
@@ -20,13 +22,14 @@ export function ToggleButtonMatrix({ elements, disabled, toggleState, setToggleS
         setToggleState(newToggleState);
     }
 
-    return <ButtonMatrixGrid elements={elements} bodyMapper={({label}, index) =>
+    return <ButtonMatrixGrid labelSize={labelSize} elements={elements} bodyMapper={({label}, index, buttonStyles) =>
         <ToggleButton
             value={1}
             selected={toggleState[index]}
             onClick={() => onToggle(index)}
             disabled={disabled}
             style={{width: "100%"}}
+            sx={buttonStyles}
         >
             {label}
         </ToggleButton>
