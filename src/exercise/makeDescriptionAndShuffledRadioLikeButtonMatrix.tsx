@@ -1,7 +1,8 @@
 import {Exercise, ExerciseProps} from "../atom/Atom";
 import {useState} from "react";
-import {Button, Grid} from "@mui/material";
+import {Button} from "@mui/material";
 import {shuffle} from "../util/shuffle";
+import {ButtonMatrix} from "../components/exercise/ButtonMatrix";
 
 /**
  * TODO: might automatically remove "wrong" answers that are identical to the correct answer, but (1) they must be
@@ -28,13 +29,10 @@ export function makeDescriptionAndShuffledRadioLikeButtonMatrix(
 
         return <div>
             <div>{description}</div>
-            <Grid container>
-                {taggedAnswers.map((taggedAnswer, index) => <Grid item xs={12} sm={6} md={3} key={index} style={{marginTop: "5px"}}>
-                    <Button variant="contained" onClick={() => onButtonClicked(taggedAnswer[1])} disabled={props.disabled} style={{width: "100%"}}>
-                        {taggedAnswer[0]}
-                    </Button>
-                </Grid>)}
-            </Grid>
+            <ButtonMatrix disabled={props.disabled} elements={taggedAnswers.map(taggedAnswer => ({
+                label: taggedAnswer[0],
+                onClick: () => onButtonClicked(taggedAnswer[1]),
+            }))} />
             <div style={{color: feedbackColor}}>{feedbackText}</div>
             {feedbackText && <Button variant="contained" onClick={() => props.goToNext()} style={{width: "100%"}}>next</Button>}
         </div>
