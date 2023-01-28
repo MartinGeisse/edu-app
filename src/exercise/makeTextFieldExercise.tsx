@@ -1,39 +1,30 @@
 import {Exercise, ExerciseProps} from "../atom/Atom";
 import {useState} from "react";
+import {FormBasedExercise} from "../components/exercise/form/FormBasedExercise";
+import {AnswerValidationResult, AnswerValidator} from "../components/exercise/form/answer-validation";
 
-export function makeTextFieldExercise(answerValidator: (answer: string) => boolean): Exercise {
+export type TextFieldAnswerValidator = (value: string) => AnswerValidationResult;
+
+export function makeTextFieldExercise(answerValidator: AnswerValidator<string>): Exercise {
     return (props: ExerciseProps) => {
         const [answer, setAnswer] = useState("");
-        const [feedbackColor, setFeedbackColor] = useState("");
-        const [feedbackText, setFeedbackText] = useState("");
-
-        function onSubmit(event: any) {
-            if (!feedbackText) {
-                const valid = answerValidator(answer);
-                setFeedbackColor(valid ? "green" : "red");
-                setFeedbackText(valid ? "right" : "wrong");
-                props.reportResult(valid);
+        function implicitAnswerValidator(): AnswerValidationResult {
+            const trimmedAnswer = answer.trim();
+            if (trimmedAnswer === "") {
+                return null;
             }
-            event.stopPropagation();
-            event.preventDefault();
-            return false;
+            return answerValidator(trimmedAnswer);
         }
-
-        return <div>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        value={answer}
-                        disabled={props.disabled}
-                        onChange={event => setAnswer(event.target.value)}
-                        autoFocus
-                    />
-                </div>
-                {!feedbackText && <div><input type="submit" value="submit" /></div>}
-                <div style={{color: feedbackColor}}>{feedbackText}</div>
-            </form>
-            {feedbackText && <input type="submit" value="next" onClick={() => props.goToNext()} />}
-        </div>;
+        return <FormBasedExercise exerciseProps={props} answerValidator={implicitAnswerValidator}>
+            <div>
+                <input
+                    type="text"
+                    value={answer}
+                    disabled={props.disabled}
+                    onChange={event => setAnswer(event.target.value)}
+                    autoFocus
+                />
+            </div>
+        </FormBasedExercise>;
     }
 }
