@@ -52,4 +52,5 @@ export type Atom = {
     content: AtomContent;
     exerciseGenerator: ExerciseGenerator;
     exerciseRules?: ExerciseRules;
+    preconditionAtomIds: string[];
 };

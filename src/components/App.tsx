@@ -1,8 +1,9 @@
-import React from "react";
-import {AllAtomsPage} from "../pages/AllAtomsPage";
+import React, {useState} from "react";
+import {OverviewPage} from "../pages/OverviewPage";
 import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
 import {SelfLoadingAtomPage} from "../pages/SelfLoadingAtomPage";
 import "./App.css";
+import {AllExercisesScore, initialAllExercisesScore} from "../state/AllExercisesScore";
 
 function AtomPageWrapper() {
   const {id} = useParams<{ id: string }>();
@@ -13,10 +14,11 @@ function AtomPageWrapper() {
 }
 
 function App() {
+  const [allExercisesScore, setAllExercisesScore] = useState<AllExercisesScore>(initialAllExercisesScore);
   return <BrowserRouter>
     <Routes>
       <Route path="/:id" element={<AtomPageWrapper />} />
-      <Route path="/" element={<AllAtomsPage />} />
+      <Route path="/" element={<OverviewPage />} />
     </Routes>
   </BrowserRouter>;
 }

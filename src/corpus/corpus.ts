@@ -2,15 +2,19 @@ import {Atom} from "../atom/Atom";
 import {randomInt} from "../util/randomInt";
 import {makeIntegerComplexValidator} from "./makeIntegerComplexValidator";
 import {makeTextFieldExercise} from "../exercise/makeTextFieldExercise";
-import {
-    makeShuffledRadioLikeButtonMatrix
-} from "../exercise/makeShuffledRadioLikeButtonMatrix";
-import {
-    makeShuffledCheckboxLikeButtonMatrix
-} from "../exercise/makeShuffledCheckboxLikeButtonMatrix";
-import {AtomContent} from "../content/AtomContent";
+import {makeShuffledRadioLikeButtonMatrix} from "../exercise/makeShuffledRadioLikeButtonMatrix";
+import {makeShuffledCheckboxLikeButtonMatrix} from "../exercise/makeShuffledCheckboxLikeButtonMatrix";
 import {Line} from "../content/Drawing";
 import {makeDescriptionAnd} from "../exercise/makeDescriptionAnd";
+import {AllExercisesScore} from "../state/AllExercisesScore";
+
+export function asMap(atoms: Atom[]) {
+    const result: Record<string, Atom> = {};
+    for (const atom of atoms) {
+        result[atom.id] = atom;
+    }
+    return result;
+}
 
 export const corpusArray: Atom[] = [
     {
@@ -27,6 +31,7 @@ export const corpusArray: Atom[] = [
                 makeTextFieldExercise(makeIntegerComplexValidator(a + c, b + d)),
             );
         },
+        preconditionAtomIds: [],
     },
     {
         id: "contentTest",
@@ -48,9 +53,10 @@ export const corpusArray: Atom[] = [
         exerciseGenerator: () => {
             return makeDescriptionAnd(
                 "Egal was du antwortest, ist eh falsch.",
-                makeTextFieldExercise(answer => false),
+                makeTextFieldExercise(_answer => false),
             );
         },
+        preconditionAtomIds: [],
     },
     {
         id: "radioTest",
@@ -94,6 +100,7 @@ export const corpusArray: Atom[] = [
 
             return makeDescriptionAnd("bla", makeShuffledRadioLikeButtonMatrix(rightAnswer, wrongAnswers, labelSize));
         },
+        preconditionAtomIds: [],
     },
     {
         id: "checkboxTest",
@@ -102,13 +109,27 @@ export const corpusArray: Atom[] = [
         exerciseGenerator: () => {
             return makeDescriptionAnd("bla", makeShuffledCheckboxLikeButtonMatrix(["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"], "medium"));
         },
+        preconditionAtomIds: [],
     },
 ];
+export const corpusMap = asMap(corpusArray);
 
-export const corpusMap: Record<string, Atom> = (() => {
-    const result: Record<string, Atom> = {};
-    for (const atom of corpusArray) {
-        result[atom.id] = atom;
-    }
-    return result;
-})();
+export function isAtomCompletedById(atomId: string, score: AllExercisesScore): boolean {
+    return score[atomId] === true;
+}
+
+export function getCompletedAtoms(score: AllExercisesScore): Atom[] {
+    return corpusArray.filter(atom => isAtomCompletedById(atom.id, score));
+}
+
+export function isAtomUnlocked(atom: Atom, score: AllExercisesScore): boolean {
+    return atom.preconditionAtomIds.every(preconditionId => isAtomCompletedById(preconditionId, score));
+}
+
+export function isAtomUnlockedById(atomId: string, score: AllExercisesScore): boolean {
+    return isAtomUnlocked(corpusMap[atomId], score);
+}
+
+export function getUnlockedButNotCompletedAtoms(score: AllExercisesScore): Atom[] {
+    return corpusArray.filter(atom => isAtomUnlocked(atom, score) && !isAtomCompletedById(atom.id, score));
+}

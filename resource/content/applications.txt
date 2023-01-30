@@ -155,6 +155,31 @@ Beispiele von Lehrplänen:
                 -> Grundverständnis, keine statischen Berechnungen
         Geschichte des jeweiligen Handwerks
 
+Lehrplan Mathe fürs Abi -> wäre auch sinnvoll! Überschneidung mit Khan Academy beachten.
+-> mal schauen, was die so machen.
+    - textfield
+        - Hier wird es nicht so gemacht, dass eine falsche Antwort als falsch gewertet und erklärt wird, sondern nur
+            gesagt dass sie falsch ist und man weiterprobieren soll bis man die richtige hat. (Wobei das jetzt auch
+            bei dem Quiz war)
+            Meine Meinung: Es ist sinnvoll, erst direktes Feedback zu bekommen und später das "probieren bis richtig"
+            zu machen. Das geht aber nur mit Generator gut.
+        - Man kann aber auch dann noch eine Erklärung aufrufen, wo man diese Aufgabe erklärt bekommt. Also so
+            ein Zwischending zwischen den beiden Varianten wie ich es mir gedacht habe.
+    - multiple choice (radio)
+        - die Vorschläge sind aber gut, siehe z.B. "Derivative as a limit"
+            Wenn man es nicht verstanden hat, klingen alle Vorschläge nur nach Bahnhof.
+    - haben scheinbar keinen Generator (zumindest nicht bei dieser Aufgabe) sondern manuell geschriebene Aufgaben
+        -> nicht so gu zum "einhämmern"
+    - haben auch wenig Aufgaben im Vergleich zu den Videos, nur ein 4-Pack Aufgaben nach 5 Videos
+        - andere Gebiete haben mehr!
+    - zusätzlich nach N videos ein "Quiz" -> multiple choice
+    - zu jeder falschen Antwort eine Erklärung, warum man auf die Idee kommen könnte, die wäre richtig, es
+        aber doch nicht ist
+    - Man muss viel auf dem Papier machen bei den komplizierten Aufgaben
+    - Zu jeder Aufgabe gibt es eine gut beschriebene Musterlösung.
+-> hier ist zumindest keine große Steigerung mehr möglich!
+
+
 ----------------------------------------------------------------------------------------------------------------------------------
 applying computer-based learning to areas where it wasn't applicable before
 ----------------------------------------------------------------------------------------------------------------------------------
