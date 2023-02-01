@@ -1,0 +1,6 @@
+This package defines different kinds of static content. "static" here refers to the fact that the user cannot alter the
+content and interaction is limited to changing the presentation of content, and only in a way limited to that viewer.
+
+What is, in principle, possible for static content: searching, collapsing, tabs.
+
+What is not possible: changing content; graded exercise input; input that is permanently stored.
