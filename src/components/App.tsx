@@ -18,7 +18,7 @@ function App() {
   return <BrowserRouter>
     <Routes>
       <Route path="/:id" element={<AtomPageWrapper />} />
-      <Route path="/" element={<OverviewPage />} />
+      <Route path="/" element={<OverviewPage allExercisesScore={allExercisesScore} />} />
     </Routes>
   </BrowserRouter>;
 }

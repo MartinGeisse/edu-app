@@ -2,6 +2,7 @@ import {getUnlockedButNotCompletedAtoms} from "../corpus/corpus";
 import {AllExercisesScore} from "../state/AllExercisesScore";
 import {useNavigate} from "react-router-dom";
 import {Atom} from "../atom/Atom";
+import {Card} from "@mui/material";
 
 export type OverviewPageProps = {
     allExercisesScore: AllExercisesScore;
@@ -17,11 +18,15 @@ export function OverviewPage(props: OverviewPageProps) {
     }
 
     const unlockedButNotCompletedAtoms = getUnlockedButNotCompletedAtoms(props.allExercisesScore);
-    return <div>
-        <ul>
-            {unlockedButNotCompletedAtoms.map(atom => <li key={atom.id}>
-                <a href="#foo" onClick={() => handleAtomLinkClicked(atom)}>{atom.title}</a>
-            </li>)}
-        </ul>
+    return <div style={{maxWidth: "500px", marginLeft: "auto", marginRight: "auto"}}>
+        {unlockedButNotCompletedAtoms.map(atom =>
+            <Card
+                key={atom.id}
+                sx={{marginTop: "10px", padding: "20px"}}
+                    onClick={() => handleAtomLinkClicked(atom)}
+            >
+                {atom.title}
+            </Card>
+        )}
     </div>;
 }
