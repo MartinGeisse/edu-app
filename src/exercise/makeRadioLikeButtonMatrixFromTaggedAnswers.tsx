@@ -5,11 +5,16 @@ import {ButtonMatrix} from "../components/exercise/ButtonMatrix";
 import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSize";
 import happyIcon from "./happy.png";
 import sadIcon from "./sad.png";
+import {shuffle} from "../util/shuffle";
 
-export function makeInternalRadioLikeButtonMatrix(
+export function makeRadioLikeButtonMatrixFromTaggedAnswers(
     taggedAnswers: [(string|number), boolean][],
     labelSize: ButtonMatrixLabelSize,
+    shuffleAnswers: boolean,
 ): Exercise {
+    if (shuffleAnswers) {
+        taggedAnswers = shuffle([...taggedAnswers]);
+    }
     return (props: ExerciseProps) => {
         const [feedback, setFeedback] = useState<boolean | null>(null);
 

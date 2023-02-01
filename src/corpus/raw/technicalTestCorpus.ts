@@ -2,7 +2,7 @@ import {Atom} from "../../atom/Atom";
 import {randomInt} from "../../util/randomInt";
 import {makeIntegerComplexValidator} from "../makeIntegerComplexValidator";
 import {makeTextFieldExercise} from "../../exercise/makeTextFieldExercise";
-import {makeShuffledRadioLikeButtonMatrix} from "../../exercise/makeShuffledRadioLikeButtonMatrix";
+import {makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers} from "../../exercise/makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers";
 import {makeShuffledCheckboxLikeButtonMatrix} from "../../exercise/makeShuffledCheckboxLikeButtonMatrix";
 import {makeDescriptionAnd} from "../../exercise/makeDescriptionAnd";
 import {StaticBlockContent} from "../../static-content/StaticBlockContent";
@@ -68,7 +68,7 @@ export const technicalTestCorpus: Atom[] = [
             const rightAnswer = "correct";
             const labelSize = "veryLong";
 
-            return makeDescriptionAnd(text("bla"), makeShuffledRadioLikeButtonMatrix(rightAnswer, wrongAnswers, labelSize));
+            return makeDescriptionAnd(text("bla"), makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers(rightAnswer, wrongAnswers, labelSize));
         },
         preconditionAtomIds: [],
     },
