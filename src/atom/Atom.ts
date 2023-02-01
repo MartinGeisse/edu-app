@@ -1,5 +1,5 @@
 import {ReactElement} from "react";
-import {AtomContent} from "../content/AtomContent";
+import {StaticBlockContent} from "../static-content/StaticBlockContent";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // exercise content
@@ -32,7 +32,7 @@ export type MaterializedExerciseRules = {
 export const defaultExerciseRules: MaterializedExerciseRules = {
     correctScore: 1,
     incorrectPenalty: 2,
-    targetScore: 10,
+    targetScore: 20,
 };
 
 export function materializeExerciseRules(rules: ExerciseRules): MaterializedExerciseRules {
@@ -49,7 +49,7 @@ export function materializeExerciseRules(rules: ExerciseRules): MaterializedExer
 export type Atom = {
     id: string;
     title: string;
-    content: AtomContent;
+    content: StaticBlockContent;
     exerciseGenerator: ExerciseGenerator;
     exerciseRules?: ExerciseRules;
     preconditionAtomIds: string[];
