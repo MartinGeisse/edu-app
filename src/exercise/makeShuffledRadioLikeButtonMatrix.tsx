@@ -1,9 +1,7 @@
-import {Exercise, ExerciseProps} from "../atom/Atom";
-import {useState} from "react";
-import {Button} from "@mui/material";
+import {Exercise} from "../atom/Atom";
 import {shuffle} from "../util/shuffle";
-import {ButtonMatrix} from "../components/exercise/ButtonMatrix";
 import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSize";
+import {makeInternalRadioLikeButtonMatrix} from "./makeInternalRadioLikeButtonMatrix";
 
 /**
  * TODO: might automatically remove "wrong" answers that are identical to the correct answer, but (1) they must be
@@ -18,23 +16,5 @@ export function makeShuffledRadioLikeButtonMatrix(
     const taggedCorrectAnswer: [(string|number), boolean] = [correctAnswer, true];
     const taggedWrongAnswers: [(string|number), boolean][] = wrongAnswers.map(a => [a, false]);
     const taggedAnswers: [(string|number), boolean][] = shuffle([taggedCorrectAnswer, ...taggedWrongAnswers]);
-    return (props: ExerciseProps) => {
-        const [feedbackColor, setFeedbackColor] = useState("");
-        const [feedbackText, setFeedbackText] = useState("");
-
-        function onButtonClicked(correct: boolean) {
-            setFeedbackColor(correct ? "green" : "red");
-            setFeedbackText(correct ? "right" : "wrong");
-            props.reportResult(correct);
-        }
-
-        return <div>
-            <ButtonMatrix disabled={props.disabled} labelSize={labelSize} elements={taggedAnswers.map(taggedAnswer => ({
-                label: taggedAnswer[0],
-                onClick: () => onButtonClicked(taggedAnswer[1]),
-            }))} />
-            <div style={{color: feedbackColor}}>{feedbackText}</div>
-            {feedbackText && <Button variant="contained" onClick={() => props.goToNext()} style={{width: "100%"}}>next</Button>}
-        </div>
-    }
+    return makeInternalRadioLikeButtonMatrix(taggedAnswers, labelSize);
 }
