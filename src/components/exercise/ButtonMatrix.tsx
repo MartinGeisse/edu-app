@@ -3,7 +3,7 @@ import {ButtonMatrixGrid} from "./ButtonMatrixGrid";
 import {ButtonMatrixLabelSize} from "./ButtonMatrixLabelSize";
 
 export type ButtonMatrixElement = {
-    label: string;
+    label: (string | number);
     onClick: () => void;
 };
 

@@ -11,13 +11,13 @@ import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSiz
  * because we cannot add another wrong answer as a replacement at this point.
  */
 export function makeShuffledRadioLikeButtonMatrix(
-    correctAnswer: string,
-    wrongAnswers: string[],
+    correctAnswer: (string|number),
+    wrongAnswers: (string|number)[],
     labelSize: ButtonMatrixLabelSize,
 ): Exercise {
-    const taggedCorrectAnswer: [string, boolean] = [correctAnswer, true];
-    const taggedWrongAnswers: [string, boolean][] = wrongAnswers.map(a => [a, false]);
-    const taggedAnswers: [string, boolean][] = shuffle([taggedCorrectAnswer, ...taggedWrongAnswers]);
+    const taggedCorrectAnswer: [(string|number), boolean] = [correctAnswer, true];
+    const taggedWrongAnswers: [(string|number), boolean][] = wrongAnswers.map(a => [a, false]);
+    const taggedAnswers: [(string|number), boolean][] = shuffle([taggedCorrectAnswer, ...taggedWrongAnswers]);
     return (props: ExerciseProps) => {
         const [feedbackColor, setFeedbackColor] = useState("");
         const [feedbackText, setFeedbackText] = useState("");

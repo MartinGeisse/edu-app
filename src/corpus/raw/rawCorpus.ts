@@ -1,3 +1,3 @@
-import {technicalTestCorpus} from "./technicalTestCorpus";
+import {mvpCorpus1} from "./mvpCorpus1";
 
-export const rawCorpus = technicalTestCorpus;
+export const rawCorpus = mvpCorpus1;

@@ -11,13 +11,13 @@ import {ButtonMatrixLabelSize} from "../components/exercise/ButtonMatrixLabelSiz
  * because we cannot add another wrong answer as a replacement at this point.
  */
 export function makeShuffledCheckboxLikeButtonMatrix(
-    correctAnswers: string[],
-    wrongAnswers: string[],
+    correctAnswers: (string|number)[],
+    wrongAnswers: (string|number)[],
     labelSize: ButtonMatrixLabelSize,
 ): Exercise {
-    const taggedCorrectAnswers: [string, boolean][] = correctAnswers.map(a => [a, true]);
-    const taggedWrongAnswers: [string, boolean][] = wrongAnswers.map(a => [a, false]);
-    const taggedAnswers: [string, boolean][] = shuffle([...taggedCorrectAnswers, ...taggedWrongAnswers]);
+    const taggedCorrectAnswers: [(string|number), boolean][] = correctAnswers.map(a => [a, true]);
+    const taggedWrongAnswers: [(string|number), boolean][] = wrongAnswers.map(a => [a, false]);
+    const taggedAnswers: [(string|number), boolean][] = shuffle([...taggedCorrectAnswers, ...taggedWrongAnswers]);
     return (props: ExerciseProps) => {
         const [toggleState, setToggleState] = useState<boolean[]>(Array(taggedAnswers.length).fill(false));
         const [feedbackColor, setFeedbackColor] = useState("");

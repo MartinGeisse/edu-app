@@ -3,7 +3,7 @@ import {ButtonMatrixGrid} from "./ButtonMatrixGrid";
 import {ButtonMatrixLabelSize} from "./ButtonMatrixLabelSize";
 
 export type ToggleButtonMatrixElement = {
-    label: string;
+    label: (string|number);
 };
 
 export type ToggleButtonMatrixProps = {
