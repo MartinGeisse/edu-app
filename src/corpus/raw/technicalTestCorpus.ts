@@ -4,47 +4,26 @@ import {makeIntegerComplexValidator} from "../makeIntegerComplexValidator";
 import {makeTextFieldExercise} from "../../exercise/makeTextFieldExercise";
 import {makeShuffledRadioLikeButtonMatrix} from "../../exercise/makeShuffledRadioLikeButtonMatrix";
 import {makeShuffledCheckboxLikeButtonMatrix} from "../../exercise/makeShuffledCheckboxLikeButtonMatrix";
-import {Line} from "../../content/Drawing";
 import {makeDescriptionAnd} from "../../exercise/makeDescriptionAnd";
+import {StaticBlockContent} from "../../static-content/StaticBlockContent";
+
+function text(text: string): StaticBlockContent {
+    return {type: "paragraph", content: text};
+}
 
 export const technicalTestCorpus: Atom[] = [
     {
         id: "complexNumbersAddition",
         title: "Complex Numbers: Addition",
-        content: "Addition is easy: We just have to add the real and imaginary parts independently. This can also be shown by: a+bi + c+di = a+c + bi+di = (a+c) + (b+d)i.",
+        content: text("Addition is easy: We just have to add the real and imaginary parts independently. This can also be shown by: a+bi + c+di = a+c + bi+di = (a+c) + (b+d)i."),
         exerciseGenerator: () => {
             const a = randomInt(10);
             const b = randomInt(10);
             const c = randomInt(10);
             const d = randomInt(10);
             return makeDescriptionAnd(
-                `What is (${a}+${b}i) + (${c} + ${d}i)?`,
+                text(`What is (${a}+${b}i) + (${c} + ${d}i)?`),
                 makeTextFieldExercise(makeIntegerComplexValidator(a + c, b + d)),
-            );
-        },
-        preconditionAtomIds: [],
-    },
-    {
-        id: "contentTest",
-        title: "Content Test",
-        content: [
-            "first para",
-            "second para",
-            {type: "plainText", text: "foo"},
-            {
-                type: "drawing",
-                drawing: {
-                    elements: [
-                        new Line(0, 0, 0, 100),
-                        new Line(0, 100, 50, 50),
-                    ]
-                }
-            },
-        ],
-        exerciseGenerator: () => {
-            return makeDescriptionAnd(
-                "Egal was du antwortest, ist eh falsch.",
-                makeTextFieldExercise(_answer => false),
             );
         },
         preconditionAtomIds: [],
@@ -52,7 +31,7 @@ export const technicalTestCorpus: Atom[] = [
     {
         id: "radioTest",
         title: "Radio-like button matrix test",
-        content: "foo",
+        content: text("foo"),
         exerciseGenerator: () => {
             // const wrongAnswers = ["a", "b", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"];
             // const rightAnswer = "c";
@@ -89,16 +68,16 @@ export const technicalTestCorpus: Atom[] = [
             const rightAnswer = "correct";
             const labelSize = "veryLong";
 
-            return makeDescriptionAnd("bla", makeShuffledRadioLikeButtonMatrix(rightAnswer, wrongAnswers, labelSize));
+            return makeDescriptionAnd(text("bla"), makeShuffledRadioLikeButtonMatrix(rightAnswer, wrongAnswers, labelSize));
         },
         preconditionAtomIds: [],
     },
     {
         id: "checkboxTest",
         title: "Checkbox-like button matrix test",
-        content: "foo",
+        content: text("foo"),
         exerciseGenerator: () => {
-            return makeDescriptionAnd("bla", makeShuffledCheckboxLikeButtonMatrix(["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"], "medium"));
+            return makeDescriptionAnd(text("bla"), makeShuffledCheckboxLikeButtonMatrix(["c1", "c2", "c3"], ["w1", "w2", "w3", "w4", "w5"], "medium"));
         },
         preconditionAtomIds: [],
     },

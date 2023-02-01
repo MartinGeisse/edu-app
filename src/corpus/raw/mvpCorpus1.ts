@@ -1,6 +1,7 @@
 import {Atom} from "../../atom/Atom";
 import {makeShuffledRadioLikeButtonMatrix} from "../../exercise/makeShuffledRadioLikeButtonMatrix";
 import {makeDescriptionAnd} from "../../exercise/makeDescriptionAnd";
+import {StaticBlockContent} from "../../static-content/StaticBlockContent";
 
 function random(limit: number) {
     return Math.floor(Math.random() * limit);
@@ -12,16 +13,21 @@ function radioTo10(expected: number) {
     return makeShuffledRadioLikeButtonMatrix(expected, wrong, "veryShort");
 }
 
+const noContent: StaticBlockContent = {type: "paragraph", content: ""};
+
 export const mvpCorpus1: Atom[] = [
     {
         id: "addition-bis-10",
         title: "Addition bis 10",
         preconditionAtomIds: [],
-        content: "",
+        content: noContent,
         exerciseGenerator: () => {
-            const x = random(10);
-            const y = random(10 - x);
-            return makeDescriptionAnd(`${x} + ${y}`, radioTo10(x + y));
+            // don't generate x and y independently, that would bias towards larger sums!
+            const sum = random(10);
+            const x = random(sum);
+            const y = sum - x;
+            const description: StaticBlockContent = {type: "paragraph", content: `${x} + ${y}`, align: "center"};
+            return makeDescriptionAnd(description, radioTo10(sum));
         },
     }
 ];

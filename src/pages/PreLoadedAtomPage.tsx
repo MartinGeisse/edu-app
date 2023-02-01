@@ -1,7 +1,7 @@
 import {Atom, materializeExerciseRules} from "../atom/Atom";
 import {AtomState} from "../atom/AtomState";
 import {useState} from "react";
-import {AtomContentView} from "../content/AtomContentView";
+import {StaticBlockContentView} from "../static-content/StaticBlockContentView";
 import {ProgressBar} from "../components/ProgressBar";
 
 export type PreLoadedAtomPageProps = {
@@ -16,9 +16,9 @@ export function PreLoadedAtomPage(props: PreLoadedAtomPageProps) {
     const [exerciseDisabled, setExerciseDisabled] = useState(false);
     const [score, setScore] = useState(props.state.score);
     const [Exercise, setExercise] = useState(() => atom.exerciseGenerator());
-    return <div>
+    return <div style={{padding: "10px"}}>
         <h1>{atom.title}</h1>
-        <div><AtomContentView content={atom.content} /></div>
+        <div><StaticBlockContentView content={atom.content} /></div>
         <div><ProgressBar variant={"determinate"} value={score / exerciseRules.targetScore * 100} /></div>
         <br />
         <Exercise
