@@ -17,7 +17,7 @@ export class EphemeralStateStore implements StateStore {
 
     async getUnlockedButNotCompletedAtomIds(): Promise<string[]>{
         return corpusArray.filter(atom => {
-            return this.score[atom.id] === true &&
+            return this.score[atom.id] !== true &&
                 atom.preconditionAtomIds.every(preconditionId => this.score[preconditionId] === true);
         }).map(atom => atom.id);
     }
