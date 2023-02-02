@@ -1,6 +1,7 @@
 import {Atom, Exercise, materializeExerciseRules} from "../atom/Atom";
 import {StaticBlockContentView} from "../static-content/StaticBlockContentView";
-import {ProgressBarBlue, ProgressBarGreen} from "../components/ProgressBar";
+import {ProgressBarBlue} from "../components/ProgressBar";
+import styles from "./DumbAtomPage.module.css";
 
 export type DumbAtomPageProps = {
     atom: Atom;
@@ -19,9 +20,8 @@ export function DumbAtomPage(
     return <div style={{padding: "10px"}}>
         <h1>{atom.title}</h1>
         <div><StaticBlockContentView content={atom.content} /></div>
-        <div>
-            {score !== true && <ProgressBarBlue variant={"determinate"} value={scorePercent} />}
-            {score === true && <ProgressBarGreen variant={"determinate"} value={scorePercent} />}
+        <div className={score === true ? styles.successProgressBar : "foo"}>
+            <ProgressBarBlue variant={"determinate"} value={scorePercent} />
         </div>
         <br />
         <Exercise
