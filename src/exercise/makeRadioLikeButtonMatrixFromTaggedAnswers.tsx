@@ -29,9 +29,9 @@ export function makeRadioLikeButtonMatrixFromTaggedAnswers(
                 onClick: () => onButtonClicked(taggedAnswer[1]),
             }))} />
             {feedback !== null && <div style={{textAlign: "center"}}>
-                <br /><br />
+                <br />
                 <img alt="feedback" src={feedback ? happyIcon : sadIcon} />
-                <br /><br />
+                <br />
             </div>}
             {feedback !== null && <Button variant="contained" onClick={() => props.goToNext()} style={{width: "100%"}}>weiter</Button>}
         </div>
