@@ -1,40 +1,36 @@
 import {Atom, materializeExerciseRules} from "../atom/Atom";
-import {AtomState} from "../atom/AtomState";
 import {useState} from "react";
-import {StaticBlockContentView} from "../static-content/StaticBlockContentView";
-import {ProgressBar} from "../components/ProgressBar";
+import {useNavigate} from "react-router-dom";
+import {DumbAtomPage} from "./DumbAtomPage";
 
 export type PreLoadedAtomPageProps = {
     atom: Atom;
-    state: AtomState;
-    onStateChanged: (newState: AtomState) => void;
+    initialScore: number | true;
+    awardScore(increment: number): Promise<number | true>;
 };
 
-export function PreLoadedAtomPage(props: PreLoadedAtomPageProps) {
-    const {atom} = props;
+export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAtomPageProps) {
+    const navigate = useNavigate();
     const exerciseRules = materializeExerciseRules(atom.exerciseRules ?? {});
+    const [score, setScore] = useState(initialScore);
+    const [exercise, setExercise] = useState(() => atom.exerciseGenerator());
     const [exerciseDisabled, setExerciseDisabled] = useState(false);
-    const [score, setScore] = useState(props.state.score);
-    const [Exercise, setExercise] = useState(() => atom.exerciseGenerator());
-    return <div style={{padding: "10px"}}>
-        <h1>{atom.title}</h1>
-        <div><StaticBlockContentView content={atom.content} /></div>
-        <div><ProgressBar variant={"determinate"} value={score / exerciseRules.targetScore * 100} /></div>
-        <br />
-        <Exercise
-            disabled={exerciseDisabled}
-            reportResult={(correct: boolean) => {
-                const newScore = correct
-                    ? Math.min(score + exerciseRules.correctScore, exerciseRules.targetScore)
-                    : Math.max(score - exerciseRules.incorrectPenalty, 0);
+    return <DumbAtomPage
+            atom={atom}
+            score={score}
+            exercise={exercise}
+            exerciseDisabled={exerciseDisabled}
+            reportExerciseResult={async (correct: boolean) => {
+                const newScore = await awardScore(correct ? exerciseRules.correctScore : -exerciseRules.incorrectPenalty);
                 setScore(newScore);
-                props.onStateChanged({score: newScore});
                 setExerciseDisabled(true);
             }}
-            goToNext={() => {
+            goToNextExercise={() => {
+                if (score === true) {
+                    navigate("/");
+                }
                 setExercise(() => atom.exerciseGenerator());
                 setExerciseDisabled(false);
             }}
-        />
-    </div>;
+    />;
 }

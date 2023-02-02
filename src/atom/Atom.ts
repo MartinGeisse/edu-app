@@ -35,7 +35,7 @@ export const defaultExerciseRules: MaterializedExerciseRules = {
     targetScore: 20,
 };
 
-export function materializeExerciseRules(rules: ExerciseRules): MaterializedExerciseRules {
+export function materializeExerciseRules(rules: ExerciseRules | undefined): MaterializedExerciseRules {
     return {
         ...defaultExerciseRules,
         ...rules
