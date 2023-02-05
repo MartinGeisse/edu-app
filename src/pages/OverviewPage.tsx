@@ -4,6 +4,7 @@ import {DarkBackground} from "../components/exercise/DarkBackground";
 import Loader from "../components/Loader";
 import {useStateStore} from "../state/StateStoreContext";
 import {corpusMap} from "../corpus/corpus";
+import {HiddenMenuTrigger} from "../components/hidden/HiddenMenuTrigger";
 
 export function OverviewPage() {
     const navigate = useNavigate();
@@ -29,5 +30,6 @@ export function OverviewPage() {
                 })}
             </Loader>
         </div>
+        <HiddenMenuTrigger />
     </DarkBackground>;
 }

@@ -106,7 +106,7 @@ export const mvpCorpus1: Atom[] = [
     },
 
     {
-        id: `lwoercase-to-uppercase-letters"}`,
+        id: `lowercase-to-uppercase-letters"}`,
         title: `Großbuchstaben finden`,
         preconditionAtomIds: [],
         content: noContent,
