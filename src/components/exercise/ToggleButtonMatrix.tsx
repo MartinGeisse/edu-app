@@ -29,7 +29,7 @@ export function ToggleButtonMatrix({ elements, disabled, toggleState, setToggleS
             onClick={() => onToggle(index)}
             disabled={disabled}
             style={{width: "100%"}}
-            sx={buttonStyles}
+            sx={{...buttonStyles, textTransform: "none"}}
         >
             {label}
         </ToggleButton>

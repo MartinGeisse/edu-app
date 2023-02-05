@@ -15,7 +15,7 @@ export type ButtonMatrixProps = {
 
 export function ButtonMatrix({ elements, disabled, labelSize }: ButtonMatrixProps) {
     return <ButtonMatrixGrid labelSize={labelSize} elements={elements} bodyMapper={({label, onClick}, _index, buttonStyles) =>
-        <Button variant="contained" onClick={onClick} disabled={disabled} style={{width: "100%", ...buttonStyles}} sx={buttonStyles}>
+        <Button variant="contained" onClick={onClick} disabled={disabled} style={{width: "100%", ...buttonStyles}} sx={{...buttonStyles, textTransform: "none"}}>
             {label}
         </Button>
     } />;

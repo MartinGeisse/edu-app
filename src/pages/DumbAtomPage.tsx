@@ -29,5 +29,6 @@ export function DumbAtomPage(
             reportResult={reportExerciseResult}
             goToNext={goToNextExercise}
         />
+        <br />
     </div>;
 }
