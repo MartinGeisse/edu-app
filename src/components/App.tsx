@@ -3,7 +3,7 @@ import {OverviewPage} from "../pages/OverviewPage";
 import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
 import {AtomPage} from "../pages/AtomPage";
 import "./App.css";
-import {MenuPage} from "../pages/MenuPage";
+import {MenuPage} from "../pages/admin/MenuPage";
 import {DependencyInjectorProvider} from "../di/useDependencies";
 
 function AtomPageWrapper() {
