@@ -3,7 +3,7 @@ import {PreLoadedAtomPage} from "./PreLoadedAtomPage";
 import Loader from "../components/Loader";
 import {Atom} from "../atom/Atom";
 import {StateStore} from "../state/StateStore";
-import {useStateStore} from "../state/StateStoreContext";
+import {useDependencies} from "../di/useDependencies";
 
 export type AtomViewProps = {
     id: string;
@@ -24,7 +24,7 @@ async function loadData(stateScore: StateStore, atomId: string): Promise<LoadedD
 }
 
 export function AtomPage(props: AtomViewProps) {
-    const stateStore = useStateStore();
+    const stateStore = useDependencies().stateStore;
     return <Loader loadingFunction={loadData} args={[stateStore, props.id]}>
         {loaderState => loaderState.type === "ready" && (() => {
             const {atom, score} = loaderState.result;

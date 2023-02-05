@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes, useParams} from "react-router-dom";
 import {AtomPage} from "../pages/AtomPage";
 import "./App.css";
 import {MenuPage} from "../pages/MenuPage";
+import {DependencyInjectorProvider} from "../di/useDependencies";
 
 function AtomPageWrapper() {
   const {id} = useParams<{ id: string }>();
@@ -14,13 +15,15 @@ function AtomPageWrapper() {
 }
 
 function App() {
-  return <BrowserRouter>
-    <Routes>
-      <Route path="/x/menu" element={<MenuPage />} />
-      <Route path="/:id" element={<AtomPageWrapper />} />
-      <Route path="/" element={<OverviewPage />} />
-    </Routes>
-  </BrowserRouter>;
+  return <DependencyInjectorProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/x/menu" element={<MenuPage />} />
+        <Route path="/:id" element={<AtomPageWrapper />} />
+        <Route path="/" element={<OverviewPage />} />
+      </Routes>
+    </BrowserRouter>
+  </DependencyInjectorProvider>;
 }
 
 export default App;

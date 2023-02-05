@@ -2,13 +2,13 @@ import {useNavigate} from "react-router-dom";
 import {Card} from "@mui/material";
 import {DarkBackground} from "../components/exercise/DarkBackground";
 import Loader from "../components/Loader";
-import {useStateStore} from "../state/StateStoreContext";
 import {corpusMap} from "../corpus/corpus";
 import {HiddenMenuTrigger} from "../components/hidden/HiddenMenuTrigger";
+import {useDependencies} from "../di/useDependencies";
 
 export function OverviewPage() {
     const navigate = useNavigate();
-    const stateStore = useStateStore();
+    const stateStore = useDependencies().stateStore;
 
     function handleAtomLinkClicked(atomId: string): boolean {
         // we cannot fall back to an HTML link because we would lose the application state
