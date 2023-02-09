@@ -33,8 +33,8 @@ function builtAdditionAtom(minValue: number, maxValue: number, shuffle: boolean,
         content: noContent,
         exerciseGenerator: () => {
             // don't generate x and y independently, that would bias towards larger sums!
-            const sum = random(maxValue - minValue) + minValue;
-            const x = random(sum);
+            const sum = random(maxValue - minValue + 1) + minValue;
+            const x = random(sum + 1);
             const y = sum - x;
             const description = centeredText(`${x} + ${y}`);
             return makeDescriptionAnd(description, radioTo(maxValue, sum, shuffle));
@@ -50,8 +50,8 @@ function builtSubtractionAtom(minValue: number, maxValue: number, shuffle: boole
         preconditionAtomIds,
         content: noContent,
         exerciseGenerator: () => {
-            const x = random(maxValue - minValue) + minValue;
-            const y = random(x);
+            const x = random(maxValue - minValue + 1) + minValue;
+            const y = random(x + 1);
             const description = centeredText(`${x} - ${y}`);
             return makeDescriptionAnd(description, radioTo(maxValue, x - y, shuffle));
         },
