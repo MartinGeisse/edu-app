@@ -1,7 +1,9 @@
 import {StateStore} from "../state/StateStore";
 import {AdminStateStore} from "../state/admin/AdminStateStore";
+import {Session} from "../session/Session";
 
 export interface DependencyInjector {
-    stateStore: StateStore;
     adminStateStore: AdminStateStore;
+    session: Session;
+    stateStore: StateStore;
 }

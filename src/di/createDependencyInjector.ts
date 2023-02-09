@@ -4,7 +4,8 @@ import {LocalStorageAdminStateStore} from "../state/admin/LocalStorageAdminState
 
 export function createDependencyInjector(): DependencyInjector {
     return {
-        stateStore: new EphemeralStateStore(),
         adminStateStore: new LocalStorageAdminStateStore(),
+        session: {playerId: null},
+        stateStore: new EphemeralStateStore(),
     };
 }
