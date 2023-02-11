@@ -6,6 +6,7 @@ import {
     makeRadioLikeButtonMatrixFromAnswersAndPredicate
 } from "../../exercise/makeRadioLikeButtonMatrixFromAnswersAndPredicate";
 import {randomElement} from "../../util/randomElement";
+import {imageToWordSelectionExerciseGenerator} from "./imageToWordSelectionExerciseGenerator";
 
 function centeredText(text: string): StaticBlockContent {
     return {type: "paragraph", content: text, align: "center"};
@@ -120,15 +121,11 @@ export const mvpCorpus1: Atom[] = [
     },
 
     {
-        id: `lowercase-to-uppercase-letters"}`,
-        title: `Großbuchstaben finden`,
+        id: `picture-to-word"}`,
+        title: `Wörter finden`,
         preconditionAtomIds: [],
         content: noContent,
-        exerciseGenerator: () => {
-            const lowercase = randomElement(lowercaseAlphabetWithUmlauts);
-            return makeDescriptionAnd(centeredText(lowercase),
-                makeLetterRadioCaseInsensitive(uppercaseAlphabetWithUmlauts, lowercase, false));
-        },
+        exerciseGenerator: imageToWordSelectionExerciseGenerator,
         exerciseRules: {targetScore: 20},
     },
 

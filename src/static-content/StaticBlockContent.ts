@@ -15,7 +15,12 @@ export interface SequenceStaticBlockContent {
     elements: StaticBlockContent[];
 }
 
-export type StaticBlockContentObject = ParagraphStaticBlockContent | SequenceStaticBlockContent;
+export interface ImageStaticBlockContent {
+    type: "image";
+    image: string;
+}
+
+export type StaticBlockContentObject = ParagraphStaticBlockContent | SequenceStaticBlockContent | ImageStaticBlockContent;
 export type StaticBlockContent = StaticBlockContentObject | StaticBlockContent[];
 
 export function shallowNormalizeStaticBlockContent(content: StaticBlockContent): StaticBlockContentObject {

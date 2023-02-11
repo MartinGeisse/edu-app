@@ -17,6 +17,11 @@ export function StaticBlockContentView(props: StaticBlockContentViewProps) {
                 <StaticInlineContentView content={content.content} />
             </div>;
 
+        case "image":
+            return <div style={{textAlign: "center"}}>
+                <img src={content.image} alt={"content"} />
+            </div>;
+
         default:
             return <div style={{color: "red"}}>UNKNOWN ELEMENT TYPE</div>;
 
