@@ -83,14 +83,15 @@ function makeLetterRadioCaseInsensitive(letters: string[], expected: string, shu
 
 
 export const mvpCorpus1: Atom[] = [
-    builtAdditionAtom(0, 10, false, []),
-    builtAdditionAtom(0, 10, true, ["addition-bis-10-noshuffle"]),
-    builtAdditionAtom(10, 20, false, ["addition-bis-10-shuffle"]),
-    builtAdditionAtom(10, 20, true, ["addition-bis-20-noshuffle"]),
-    builtSubtractionAtom(0, 10, false, ["addition-bis-20-shuffle"]),
-    builtSubtractionAtom(0, 10, true, ["subtraction-bis-10-noshuffle"]),
-    builtSubtractionAtom(10, 20, false, ["subtraction-bis-10-shuffle"]),
-    builtSubtractionAtom(10, 20, true, ["subtraction-bis-20-noshuffle"]),
+    builtAdditionAtom(10, 100, false, []),
+    builtAdditionAtom(0, 1, false, []),
+    // builtAdditionAtom(0, 10, true, ["addition-bis-10-noshuffle"]),
+    // builtAdditionAtom(10, 20, false, ["addition-bis-10-shuffle"]),
+    // builtAdditionAtom(10, 20, true, ["addition-bis-20-noshuffle"]),
+    // builtSubtractionAtom(0, 10, false, ["addition-bis-20-shuffle"]),
+    // builtSubtractionAtom(0, 10, true, ["subtraction-bis-10-noshuffle"]),
+    // builtSubtractionAtom(10, 20, false, ["subtraction-bis-10-shuffle"]),
+    // builtSubtractionAtom(10, 20, true, ["subtraction-bis-20-noshuffle"]),
 
     {
         id: `uppercase-to-lowercase-letters"}`,
@@ -101,6 +102,19 @@ export const mvpCorpus1: Atom[] = [
             const uppercase = randomElement(uppercaseAlphabetWithUmlauts);
             return makeDescriptionAnd(centeredText(uppercase),
                 makeLetterRadioCaseInsensitive(lowercaseAlphabetWithUmlauts, uppercase, false));
+        },
+        exerciseRules: {targetScore: 20},
+    },
+
+    {
+        id: `lowercase-to-uppercase-letters"}`,
+        title: `Großbuchstaben finden`,
+        preconditionAtomIds: [],
+        content: noContent,
+        exerciseGenerator: () => {
+            const lowercase = randomElement(lowercaseAlphabetWithUmlauts);
+            return makeDescriptionAnd(centeredText(lowercase),
+                makeLetterRadioCaseInsensitive(uppercaseAlphabetWithUmlauts, lowercase, false));
         },
         exerciseRules: {targetScore: 20},
     },
