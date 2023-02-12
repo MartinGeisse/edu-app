@@ -19,7 +19,7 @@ export function StaticBlockContentView(props: StaticBlockContentViewProps) {
 
         case "image":
             return <div style={{textAlign: "center"}}>
-                <img src={content.image} alt={"content"} />
+                <img style={{width: "70%"}} src={content.image} alt={"content"} />
             </div>;
 
         default:

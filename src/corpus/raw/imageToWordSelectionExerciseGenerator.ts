@@ -9,7 +9,7 @@ export function imageToWordSelectionExerciseGenerator() {
     const entryOriginal = randomElement(dictionaryWithPictures);
     const entry = {word: entryOriginal.word.toUpperCase(), picture: entryOriginal.picture};
     const wrongWords: string[] = [];
-    for (let i = 0; i < 5; i++) {
+    while (wrongWords.length < 5) {
         const otherEntry = randomElement(dictionaryWithPictures);
         const otherWord = otherEntry.word.toUpperCase();
         if (otherWord !== entry.word && !wrongWords.includes(otherWord)) {
@@ -17,5 +17,5 @@ export function imageToWordSelectionExerciseGenerator() {
         }
     }
     return makeDescriptionAnd({type: "image", image: entry.picture},
-        makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers(entry.word, wrongWords, "medium"));
+        makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers(entry.word, wrongWords, "short"));
 }

@@ -40,7 +40,7 @@ function builtAdditionAtom(minValue: number, maxValue: number, shuffle: boolean,
             const description = centeredText(`${x} + ${y}`);
             return makeDescriptionAnd(description, radioTo(maxValue, sum, shuffle));
         },
-        exerciseRules: {targetScore: 20},
+        exerciseRules: {targetScore: 50},
     };
 }
 
@@ -56,7 +56,7 @@ function builtSubtractionAtom(minValue: number, maxValue: number, shuffle: boole
             const description = centeredText(`${x} - ${y}`);
             return makeDescriptionAnd(description, radioTo(maxValue, x - y, shuffle));
         },
-        exerciseRules: {targetScore: 20},
+        exerciseRules: {targetScore: 100},
     };
 }
 
@@ -85,17 +85,17 @@ function makeLetterRadioCaseInsensitive(letters: string[], expected: string, shu
 
 export const mvpCorpus1: Atom[] = [
     builtAdditionAtom(10, 100, false, []),
-    builtAdditionAtom(0, 1, false, []),
-    // builtAdditionAtom(0, 10, true, ["addition-bis-10-noshuffle"]),
-    // builtAdditionAtom(10, 20, false, ["addition-bis-10-shuffle"]),
-    // builtAdditionAtom(10, 20, true, ["addition-bis-20-noshuffle"]),
-    // builtSubtractionAtom(0, 10, false, ["addition-bis-20-shuffle"]),
-    // builtSubtractionAtom(0, 10, true, ["subtraction-bis-10-noshuffle"]),
-    // builtSubtractionAtom(10, 20, false, ["subtraction-bis-10-shuffle"]),
-    // builtSubtractionAtom(10, 20, true, ["subtraction-bis-20-noshuffle"]),
+    builtAdditionAtom(0, 10, false, []),
+    builtAdditionAtom(0, 10, true, ["addition-bis-10-noshuffle"]),
+    builtAdditionAtom(10, 20, false, ["addition-bis-10-shuffle"]),
+    builtAdditionAtom(10, 20, true, ["addition-bis-20-noshuffle"]),
+    builtSubtractionAtom(0, 10, false, ["addition-bis-20-shuffle"]),
+    builtSubtractionAtom(0, 10, true, ["subtraction-bis-10-noshuffle"]),
+    builtSubtractionAtom(10, 20, false, ["subtraction-bis-10-shuffle"]),
+    builtSubtractionAtom(10, 20, true, ["subtraction-bis-20-noshuffle"]),
 
     {
-        id: `uppercase-to-lowercase-letters"}`,
+        id: `uppercase-to-lowercase-letters`,
         title: `Kleinbuchstaben finden`,
         preconditionAtomIds: [],
         content: noContent,
@@ -104,11 +104,11 @@ export const mvpCorpus1: Atom[] = [
             return makeDescriptionAnd(centeredText(uppercase),
                 makeLetterRadioCaseInsensitive(lowercaseAlphabetWithUmlauts, uppercase, false));
         },
-        exerciseRules: {targetScore: 20},
+        exerciseRules: {targetScore: 100},
     },
 
     {
-        id: `lowercase-to-uppercase-letters"}`,
+        id: `lowercase-to-uppercase-letters`,
         title: `Großbuchstaben finden`,
         preconditionAtomIds: [],
         content: noContent,
@@ -117,16 +117,31 @@ export const mvpCorpus1: Atom[] = [
             return makeDescriptionAnd(centeredText(lowercase),
                 makeLetterRadioCaseInsensitive(uppercaseAlphabetWithUmlauts, lowercase, false));
         },
-        exerciseRules: {targetScore: 20},
+        exerciseRules: {targetScore: 100},
     },
 
     {
-        id: `picture-to-word"}`,
+        id: `picture-to-word`,
         title: `Wörter finden`,
         preconditionAtomIds: [],
         content: noContent,
         exerciseGenerator: imageToWordSelectionExerciseGenerator,
-        exerciseRules: {targetScore: 20},
+        exerciseRules: {targetScore: 100},
+    },
+
+    {
+        id: `dual-addition`,
+        title: `Doppel-Plusrechnen`,
+        preconditionAtomIds: [],//["subtraction-bis-20-shuffle"],
+        content: noContent,
+        exerciseGenerator: () => {
+            const x = random(7) + 1;
+            const y = random(7) + 1;
+            const z = random(6) + 1;
+            const description = centeredText(`${x} + ${y} + ${z}`);
+            return makeDescriptionAnd(description, radioTo(20, x + y + z, false));
+        },
+        exerciseRules: {targetScore: 50},
     },
 
 ];
