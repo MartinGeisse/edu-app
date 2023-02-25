@@ -15,7 +15,6 @@ export function PlayerSelectionInterceptor(props: PlayerSelectionInterceptorProp
             // We don't handle default player creation here because then you could, in theory, get stuck on an
             // empty player selection page when opening that page directly because it isn't covered by this interceptor.
             navigateToPlayerSelectionPage();
-            console.log("intercepted", injector);
         }
     });
     return <>{injector.session.playerId !== null && props.children}</>;

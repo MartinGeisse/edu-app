@@ -15,12 +15,9 @@ export function PlayerSelectionPage() {
     const choosePlayer = useChoosePlayer();
     const navigate = useNavigate();
 
-    console.log("***");
-
     // handle a 0-player or 1-player list automatically
     useEffectOnce(async () => {
         if (injector.session.playerId === null) {
-            console.log("foo");
             const playerList = await injector.adminStateStore.getPlayerList();
             if (playerList.length === 0) {
                 const playerId = await injector.adminStateStore.createPlayer("Spieler");
@@ -30,7 +27,6 @@ export function PlayerSelectionPage() {
                 choosePlayer(playerList[0].id);
                 navigate("/");
             }
-            console.log("bar");
         }
     });
 

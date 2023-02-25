@@ -27,7 +27,7 @@ export function AppRoutes() {
     return <Routes>
         <Route path="/x/adminMenu" element={<AdminMenuPage />} />
         <Route path="/x/selectPlayer" element={<PlayerSelectionPage />} />
-        <Route path="/" element={<AppRoutesThatNeedPlayer />} />
+        <Route path="/*" element={<AppRoutesThatNeedPlayer />} />
     </Routes>;
 }
 

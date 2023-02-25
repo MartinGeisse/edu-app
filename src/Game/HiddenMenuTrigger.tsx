@@ -14,7 +14,7 @@ export function HiddenMenuTrigger() {
         inputHolder.current += index;
         inputHolder.current = inputHolder.current.substring(inputHolder.current.length - secret.length);
         if (inputHolder.current === secret) {
-            navigate("/x/menu");
+            navigate("/x/adminMenu");
         }
     }
 
