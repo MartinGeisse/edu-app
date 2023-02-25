@@ -10,7 +10,7 @@ export type ButtonMatrixGridProps<T> = {
 
 export function ButtonMatrixGrid<T>({ elements, bodyMapper, labelSize }: ButtonMatrixGridProps<T>) {
     const { gridItemProperties, buttonStyles } = buttonMatrixLabelSizeDescriptors[labelSize];
-    return <Grid container>
+    return <Grid container columns={labelSize === "veryShort" ? 10 : 12}>
         {elements.map((element, index) =>
             <Grid item {...gridItemProperties} key={index} style={{marginTop: "5px"}} sx={{ padding: "5px" }}>
                 {bodyMapper(element, index, buttonStyles)}
