@@ -4,6 +4,7 @@ import {DumbAtomPage} from "./DumbAtomPage";
 import {Atom} from "./AtomTypes";
 import {materializeExerciseRules} from "./ExerciseRules";
 import {ExerciseGradingState} from "./ExerciseGradingState";
+import {scrollToBottomDelayed, scrollToTop} from "../../Util/scrolling";
 
 export type PreLoadedAtomPageProps = {
     atom: Atom;
@@ -32,9 +33,13 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
                     const newScore = await awardScore(correct ? exerciseRules.correctScore : -exerciseRules.incorrectPenalty);
                     setScore(newScore);
                 }
+                // Use a slight timeout so React can render first. Rendering will make the page content longer, so
+                // what is the "bottom" now won't be the bottom after rendering anymore.
+                scrollToBottomDelayed();
             }}
             retryExercise={() => {
                 setExerciseGradingState("retry");
+                scrollToTop();
             }}
             goToNextExercise={() => {
                 if (score === true) {
@@ -42,6 +47,7 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
                 }
                 setExercise(() => atom.exerciseGenerator());
                 setExerciseGradingState("wip");
+                scrollToTop();
             }}
     />;
 }
