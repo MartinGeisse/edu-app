@@ -20,7 +20,6 @@ export function makeShuffledCheckboxLikeButtonMatrix(
     const taggedAnswers: [(string|number), boolean][] = shuffle([...taggedCorrectAnswers, ...taggedWrongAnswers]);
     return (props: ExerciseProps) => {
         const [toggleState, setToggleState] = useState<boolean[]>(Array(taggedAnswers.length).fill(false));
-        const [feedbackColor, setFeedbackColor] = useState("");
         const [feedbackText, setFeedbackText] = useState("");
 
         function onSubmit() {
@@ -30,18 +29,16 @@ export function makeShuffledCheckboxLikeButtonMatrix(
                     correct = false;
                 }
             }
-            setFeedbackColor(correct ? "green" : "red");
             setFeedbackText(correct ? "right" : "wrong");
             props.reportResult(correct);
         }
 
+        // TODO remove feedbackText here, the atom page now handles this!
         const elements = taggedAnswers.map(taggedAnswer => ({label: taggedAnswer[0]}));
         return <div>
             <ToggleButtonMatrix elements={elements} disabled={props.disabled} toggleState={toggleState} setToggleState={setToggleState} labelSize={labelSize} />
             <br />
             {!feedbackText && <Button variant="contained" onClick={() => onSubmit()} style={{width: "100%"}}>submit</Button>}
-            <div style={{color: feedbackColor}}>{feedbackText}</div>
-            {feedbackText && <Button variant="contained" onClick={() => props.goToNext()} style={{width: "100%"}}>next</Button>}
         </div>
     }
 }

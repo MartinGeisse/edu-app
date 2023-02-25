@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {DumbAtomPage} from "./DumbAtomPage";
 import {Atom} from "./AtomTypes";
 import {materializeExerciseRules} from "./ExerciseRules";
+import {ExerciseGradingState} from "./ExerciseGradingState";
 
 export type PreLoadedAtomPageProps = {
     atom: Atom;
@@ -18,23 +19,29 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
     const exerciseRules = materializeExerciseRules(atom.exerciseRules ?? {});
     const [score, setScore] = useState(initialScore);
     const [exercise, setExercise] = useState(() => atom.exerciseGenerator());
-    const [exerciseDisabled, setExerciseDisabled] = useState(false);
+    const [exerciseGradingState, setExerciseGradingState] = useState<ExerciseGradingState>("wip");
+
     return <DumbAtomPage
             atom={atom}
             score={score}
             exercise={exercise}
-            exerciseDisabled={exerciseDisabled}
+            exerciseGradingState={exerciseGradingState}
             reportExerciseResult={async (correct: boolean) => {
-                const newScore = await awardScore(correct ? exerciseRules.correctScore : -exerciseRules.incorrectPenalty);
-                setScore(newScore);
-                setExerciseDisabled(true);
+                setExerciseGradingState(correct ? "right" : "wrong");
+                if (exerciseGradingState === "wip") {
+                    const newScore = await awardScore(correct ? exerciseRules.correctScore : -exerciseRules.incorrectPenalty);
+                    setScore(newScore);
+                }
+            }}
+            retryExercise={() => {
+                setExerciseGradingState("retry");
             }}
             goToNextExercise={() => {
                 if (score === true) {
                     navigate("/");
                 }
                 setExercise(() => atom.exerciseGenerator());
-                setExerciseDisabled(false);
+                setExerciseGradingState("wip");
             }}
     />;
 }

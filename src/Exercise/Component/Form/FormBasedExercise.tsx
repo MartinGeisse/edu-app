@@ -38,11 +38,5 @@ export function FormBasedExercise(props: FormBasedExerciseProps): ReactElement {
                 {answerValidationResult.message}
             </div>
         </form>
-        {answered && <input
-            type="submit"
-            value="next"
-            onClick={() => props.exerciseProps.goToNext()}
-            autoFocus={answerValidationResult.type === "right"}
-        />}
     </div>;
 }
