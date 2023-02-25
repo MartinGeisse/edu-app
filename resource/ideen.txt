@@ -1,0 +1,3 @@
+Aufgabe nach fehleingabe korrigieren, aber dann keine Punkte mehr, trotzdem Lerneffekt
+
+Zahlen-Buttons: 10 statt 12 (MUI grid) in einer zeile
