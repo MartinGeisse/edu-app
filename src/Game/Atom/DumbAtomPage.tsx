@@ -44,8 +44,8 @@ export function DumbAtomPage(
             <img alt="feedback" src={exerciseGradingState === "right" ? happyIcon : sadIcon} />
             <br />
         </div>}
-        {exerciseGradingState === "wrong" && <Button sx={{marginBottom: "5px"}} variant="outlined" onClick={() => retryExercise()} style={{width: "100%"}}>nochmal probieren (ohne Punkte)</Button>}
-        {exerciseGradingState !== "wip" && <Button variant="contained" onClick={() => goToNextExercise()} style={{width: "100%"}}>weiter</Button>}
+        {exerciseGradingState === "wrong" && <Button variant="outlined" onClick={() => retryExercise()} style={{width: "100%"}}>nochmal probieren (ohne Punkte)</Button>}
+        {exerciseGradingState !== "wip" && <Button variant="contained" onClick={() => goToNextExercise()} style={{width: "100%", marginTop: "5px"}}>weiter</Button>}
         <br />
     </div>;
 }
