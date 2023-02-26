@@ -2,10 +2,9 @@ import Loader from "../Util/Component/Loader";
 import {useDependencyInjector} from "./DependencyInjection/useDependencyInjector";
 import {AdminStateStore, Player} from "./AdminState/AdminStateStore";
 import {Button} from "@mui/material";
-import {useNavigate} from "react-router-dom";
 import {useChoosePlayer} from "./AdminState/useChoosePlayer";
 import {useEffectOnce} from "../Util/useEffectOnce";
-import {BASE_PATH} from "../config";
+import {useNavigateToOverviewPage} from "./AppRoutes";
 
 async function loadPlayerList(adminStateStore: AdminStateStore): Promise<Player[]> {
     return adminStateStore.getPlayerList();
@@ -14,7 +13,7 @@ async function loadPlayerList(adminStateStore: AdminStateStore): Promise<Player[
 export function PlayerSelectionPage() {
     const injector = useDependencyInjector();
     const choosePlayer = useChoosePlayer();
-    const navigate = useNavigate();
+    const navigateToOverviewPage = useNavigateToOverviewPage();
 
     // handle a 0-player or 1-player list automatically
     useEffectOnce(async () => {
@@ -23,17 +22,17 @@ export function PlayerSelectionPage() {
             if (playerList.length === 0) {
                 const playerId = await injector.adminStateStore.createPlayer("Spieler");
                 choosePlayer(playerId);
-                navigate(BASE_PATH);
+                navigateToOverviewPage();
             } else if (playerList.length === 1) {
                 choosePlayer(playerList[0].id);
-                navigate(BASE_PATH);
+                navigateToOverviewPage();
             }
         }
     });
 
     function onPlayerButtonClicked(player: Player) {
         choosePlayer(player.id);
-        navigate(BASE_PATH);
+        navigateToOverviewPage();
     }
 
     return <Loader loadingFunction={loadPlayerList} args={[injector.adminStateStore]}>

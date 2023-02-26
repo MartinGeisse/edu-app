@@ -1,4 +1,3 @@
-import {useNavigate} from "react-router-dom";
 import {Card, ToggleButton} from "@mui/material";
 import {DarkBackground} from "../Util/Component/DarkBackground";
 import {corpusArray, corpusMap} from "./Corpus/corpus";
@@ -11,7 +10,7 @@ import {useState} from "react";
 import {Atom} from "./Atom/AtomTypes";
 import {loadScoreMap} from "./Util/loadScoreMap";
 import {GameStateStore} from "./State/GameStateStore";
-import {BASE_PATH} from "../config";
+import {useNavigateToAtomPage} from "../App/AppRoutes";
 
 interface Entry extends Atom {
     finished: boolean;
@@ -26,13 +25,13 @@ async function loadAtoms(gameStateStore: GameStateStore, showFinished: boolean):
 }
 
 export function OverviewPage() {
-    const navigate = useNavigate();
+    const navigateToAtomPage = useNavigateToAtomPage();
     const stateStore = useGameStateStore();
     const [showFinished, setShowFinished] = useState(false);
 
     function handleAtomLinkClicked(atomId: string): boolean {
         // we cannot fall back to an HTML link because we would lose the application state
-        navigate(BASE_PATH + "/" + atomId);
+        navigateToAtomPage(atomId);
         return false;
     }
 

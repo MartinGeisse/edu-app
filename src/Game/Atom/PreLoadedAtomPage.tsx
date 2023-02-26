@@ -1,11 +1,10 @@
 import {useState} from "react";
-import {useNavigate} from "react-router-dom";
 import {DumbAtomPage} from "./DumbAtomPage";
 import {Atom} from "./AtomTypes";
 import {materializeExerciseRules} from "./ExerciseRules";
 import {ExerciseGradingState} from "./ExerciseGradingState";
 import {scrollToBottomDelayed, scrollToTop} from "../../Util/scrolling";
-import {BASE_PATH} from "../../config";
+import {useNavigateToOverviewPage} from "../../App/AppRoutes";
 
 export type PreLoadedAtomPageProps = {
     atom: Atom;
@@ -17,7 +16,7 @@ export type PreLoadedAtomPageProps = {
  * no-loading but stateful atom page
  */
 export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAtomPageProps) {
-    const navigate = useNavigate();
+    const navigateToOverviewPage = useNavigateToOverviewPage();
     const exerciseRules = materializeExerciseRules(atom.exerciseRules ?? {});
     const [score, setScore] = useState(initialScore);
     const [exercise, setExercise] = useState(() => atom.exerciseGenerator());
@@ -50,7 +49,7 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
             }}
             goToNextExercise={() => {
                 if (justFinished) {
-                    navigate(BASE_PATH);
+                    navigateToOverviewPage();
                 }
                 setExercise(() => atom.exerciseGenerator());
                 setExerciseGradingState("wip");

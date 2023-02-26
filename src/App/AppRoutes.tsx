@@ -32,12 +32,39 @@ export function AppRoutes() {
     </Routes>;
 }
 
-export function useNavigateToAdminMenuPage(): () => void {
-    const navigate = useNavigate();
-    return () => navigate(BASE_PATH + "/x/adminMenu");
+function applyBasePath(path: string) {
+    const pathWithLeadingSlash = (path.startsWith("/") ? "" : "/") + path;
+    if (BASE_PATH === "/") {
+        if (path === "" || path === "/") {
+            return "/";
+        } else {
+            return pathWithLeadingSlash;
+        }
+    } else {
+        const base = BASE_PATH.endsWith("/") ? BASE_PATH.substring(0, BASE_PATH.length - 1) : BASE_PATH;
+        if (path === "" || path === "/") {
+            return base;
+        } else {
+            return base + pathWithLeadingSlash;
+        }
+    }
 }
 
-export function useNavigateToPlayerSelectionPage(): () => void {
+export function useAppNavigate() {
     const navigate = useNavigate();
-    return () => navigate(BASE_PATH + "/x/selectPlayer");
+    return (to: string) => navigate(applyBasePath(to));
 }
+
+export function makeNavigate<PB extends ((...args: any[]) => string)>(
+    pathBuilder: PB
+): () => (...args: Parameters<PB>) => void {
+    return () => {
+        const navigate = useAppNavigate();
+        return (...args: Parameters<PB>) => navigate(pathBuilder(args));
+    };
+}
+
+export const useNavigateToOverviewPage = makeNavigate(() => "/");
+export const useNavigateToAtomPage = makeNavigate((atomId: string) => `/${atomId}`);
+export const useNavigateToAdminMenuPage = makeNavigate(() => "/x/adminMenu");
+export const useNavigateToPlayerSelectionPage = makeNavigate(() => "/x/selectPlayer");
