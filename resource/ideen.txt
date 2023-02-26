@@ -1,3 +1,27 @@
 Aufgabe nach fehleingabe korrigieren, aber dann keine Punkte mehr, trotzdem Lerneffekt
 
 Zahlen-Buttons: 10 statt 12 (MUI grid) in einer zeile
+
+
+
+----
+
+ganze Wörter
+
+Zahlenreihen, auch in 2er schritten und -1er schritten
+
+Geldbeträge:
+- euro vs cent
+- münzen kombinieren
+- beträge in münzen aufsplitten
+
+messen, wiegen, präfixeinheiten
+
+pflanzen bestimmen
+
+zeit, uhr, kalender
+
+verkehrsregeln
+
+entfernungen verstehen
+
