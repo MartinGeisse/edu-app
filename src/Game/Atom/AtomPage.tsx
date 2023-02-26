@@ -4,6 +4,7 @@ import {GameStateStore} from "../State/GameStateStore";
 import {Atom} from "./AtomTypes";
 import Loader from "../../Util/Component/Loader";
 import {useGameStateStore} from "../Dependencies/useGameStateStore";
+import {materializeExerciseRules} from "./ExerciseRules";
 
 export type AtomViewProps = {
     id: string;
@@ -37,7 +38,21 @@ export function AtomPage(props: AtomViewProps) {
                 atom={atom}
                 initialScore={score}
                 awardScore={async (increment: number): Promise<number | true> => {
-                    return await stateStore.awardAtomScore(atom.id, increment);
+                    const rules = materializeExerciseRules(corpusMap[atom.id].exerciseRules);
+                    let score = await stateStore.getAtomScore(atom.id);
+                    // even if decrement is negative, the score won't go down again once the player has reached the target
+                    // score for this atom
+                    if (score !== true) {
+                        score += increment;
+                        if (score < 0) {
+                            score = 0;
+                        }
+                        if (score >= rules.targetScore) {
+                            score = true;
+                        }
+                        await stateStore.setAtomScore(atom.id, score);
+                    }
+                    return score;
                 }}
             />;
         })()}
