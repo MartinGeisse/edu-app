@@ -19,7 +19,8 @@ export function HiddenMenuTrigger() {
     }
 
     return <div>
-        <div style={{height: "200px"}} onClick={() => onClick(0)}>&nbsp;</div>
-        <div style={{height: "200px"}} onClick={() => onClick(1)}>&nbsp;</div>
+        <div style={{height: "200px", float: "left", width: "50%"}} onClick={() => onClick(0)}>&nbsp;</div>
+        <div style={{height: "200px", float: "right", width: "50%"}} onClick={() => onClick(1)}>&nbsp;</div>
+        <div style={{clear: "both"}}>&nbsp;</div>
     </div>;
 }
