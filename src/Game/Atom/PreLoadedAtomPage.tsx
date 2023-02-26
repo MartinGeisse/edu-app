@@ -22,6 +22,9 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
     const [exercise, setExercise] = useState(() => atom.exerciseGenerator());
     const [exerciseGradingState, setExerciseGradingState] = useState<ExerciseGradingState>("wip");
 
+    // this state is used to distinguish just-finished atoms from revisiting previously-finished ones
+    const [justFinished, setJustFinished] = useState(false);
+
     return <DumbAtomPage
             atom={atom}
             score={score}
@@ -32,6 +35,9 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
                 if (exerciseGradingState === "wip") {
                     const newScore = await awardScore(correct ? exerciseRules.correctScore : -exerciseRules.incorrectPenalty);
                     setScore(newScore);
+                    if (score !== true && newScore === true) {
+                        setJustFinished(true);
+                    }
                 }
                 // Use a slight timeout so React can render first. Rendering will make the page content longer, so
                 // what is the "bottom" now won't be the bottom after rendering anymore.
@@ -42,7 +48,7 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
                 scrollToTop();
             }}
             goToNextExercise={() => {
-                if (score === true) {
+                if (justFinished) {
                     navigate("/");
                 }
                 setExercise(() => atom.exerciseGenerator());
