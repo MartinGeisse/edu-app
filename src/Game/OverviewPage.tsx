@@ -12,11 +12,16 @@ import {Atom} from "./Atom/AtomTypes";
 import {loadScoreMap} from "./Util/loadScoreMap";
 import {GameStateStore} from "./State/GameStateStore";
 
-async function loadAtoms(gameStateStore: GameStateStore, showFinished: boolean): Promise<Atom[]> {
+interface Entry extends Atom {
+    finished: boolean;
+}
+
+async function loadAtoms(gameStateStore: GameStateStore, showFinished: boolean): Promise<Entry[]> {
     const scoreMap = await loadScoreMap(gameStateStore);
     const isFinished = (atom: Atom) => scoreMap[atom.id] === true;
     const isUnlocked = (atom: Atom) => atom.preconditionAtomIds.every(id => isFinished(corpusMap[id]));
-    return corpusArray.filter(atom => isFinished(atom) ? showFinished : isUnlocked(atom));
+    return corpusArray.filter(atom => isFinished(atom) ? showFinished : isUnlocked(atom))
+        .map(atom => ({...atom, finished: isFinished(atom)}));
 }
 
 export function OverviewPage() {
@@ -33,13 +38,14 @@ export function OverviewPage() {
     return <DarkBackground>
         <div style={{maxWidth: "500px", marginLeft: "auto", marginRight: "auto"}}>
             <Loader loadingFunction={loadAtoms} args={[stateStore, showFinished]}>
-                {(loaderState) => loaderState.type === "ready" && loaderState.result.map((atom: Atom) => {
+                {(loaderState) => loaderState.type === "ready" && loaderState.result.map((entry: Entry) => {
                     return <Card
-                        key={atom.id}
+                        key={entry.id}
                         sx={{marginTop: "10px", padding: "20px"}}
-                        onClick={() => handleAtomLinkClicked(atom.id)}
+                        onClick={() => handleAtomLinkClicked(entry.id)}
                     >
-                        {atom.title}
+                        {entry.finished && <div style={{float: "right"}}><FontAwesomeIcon icon={faCheck} /></div>}
+                        {entry.title}
                     </Card>;
                 })}
             </Loader>
