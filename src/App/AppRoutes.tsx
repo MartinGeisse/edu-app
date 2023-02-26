@@ -5,6 +5,7 @@ import React from "react";
 import {AtomPage} from "../Game/Atom/AtomPage";
 import {PlayerSelectionPage} from "./PlayerSelectionPage";
 import {PlayerSelectionInterceptor} from "./PlayerSelectionInterceptor";
+import {BASE_PATH} from "../config";
 
 function AtomPageWrapper() {
     const {id} = useParams<{ id: string }>();
@@ -33,10 +34,10 @@ export function AppRoutes() {
 
 export function useNavigateToAdminMenuPage(): () => void {
     const navigate = useNavigate();
-    return () => navigate("/x/adminMenu");
+    return () => navigate(BASE_PATH + "/x/adminMenu");
 }
 
 export function useNavigateToPlayerSelectionPage(): () => void {
     const navigate = useNavigate();
-    return () => navigate("/x/selectPlayer");
+    return () => navigate(BASE_PATH + "/x/selectPlayer");
 }

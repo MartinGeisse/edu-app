@@ -5,6 +5,7 @@ import {Atom} from "./AtomTypes";
 import {materializeExerciseRules} from "./ExerciseRules";
 import {ExerciseGradingState} from "./ExerciseGradingState";
 import {scrollToBottomDelayed, scrollToTop} from "../../Util/scrolling";
+import {BASE_PATH} from "../../config";
 
 export type PreLoadedAtomPageProps = {
     atom: Atom;
@@ -49,7 +50,7 @@ export function PreLoadedAtomPage({atom, initialScore, awardScore}: PreLoadedAto
             }}
             goToNextExercise={() => {
                 if (justFinished) {
-                    navigate("/");
+                    navigate(BASE_PATH);
                 }
                 setExercise(() => atom.exerciseGenerator());
                 setExerciseGradingState("wip");

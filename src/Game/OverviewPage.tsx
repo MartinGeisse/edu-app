@@ -11,6 +11,7 @@ import {useState} from "react";
 import {Atom} from "./Atom/AtomTypes";
 import {loadScoreMap} from "./Util/loadScoreMap";
 import {GameStateStore} from "./State/GameStateStore";
+import {BASE_PATH} from "../config";
 
 interface Entry extends Atom {
     finished: boolean;
@@ -31,7 +32,7 @@ export function OverviewPage() {
 
     function handleAtomLinkClicked(atomId: string): boolean {
         // we cannot fall back to an HTML link because we would lose the application state
-        navigate("/" + atomId);
+        navigate(BASE_PATH + "/" + atomId);
         return false;
     }
 

@@ -1,5 +1,6 @@
 import {useRef} from "react";
 import {useNavigate} from "react-router-dom";
+import {BASE_PATH} from "../config";
 
 const secret = "010011011";
 
@@ -14,7 +15,7 @@ export function HiddenMenuTrigger() {
         inputHolder.current += index;
         inputHolder.current = inputHolder.current.substring(inputHolder.current.length - secret.length);
         if (inputHolder.current === secret) {
-            navigate("/x/adminMenu");
+            navigate(BASE_PATH + "/x/adminMenu");
         }
     }
 

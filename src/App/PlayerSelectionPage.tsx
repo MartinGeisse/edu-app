@@ -5,6 +5,7 @@ import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {useChoosePlayer} from "./AdminState/useChoosePlayer";
 import {useEffectOnce} from "../Util/useEffectOnce";
+import {BASE_PATH} from "../config";
 
 async function loadPlayerList(adminStateStore: AdminStateStore): Promise<Player[]> {
     return adminStateStore.getPlayerList();
@@ -22,17 +23,17 @@ export function PlayerSelectionPage() {
             if (playerList.length === 0) {
                 const playerId = await injector.adminStateStore.createPlayer("Spieler");
                 choosePlayer(playerId);
-                navigate("/");
+                navigate(BASE_PATH);
             } else if (playerList.length === 1) {
                 choosePlayer(playerList[0].id);
-                navigate("/");
+                navigate(BASE_PATH);
             }
         }
     });
 
     function onPlayerButtonClicked(player: Player) {
         choosePlayer(player.id);
-        navigate("/");
+        navigate(BASE_PATH);
     }
 
     return <Loader loadingFunction={loadPlayerList} args={[injector.adminStateStore]}>
