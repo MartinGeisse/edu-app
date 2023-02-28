@@ -111,6 +111,7 @@ export const mvpCorpus1: Atom[] = [
     builtSubtractionAtom(10, 20, false, ["subtraction-bis-10-shuffle"]),
     builtSubtractionAtom(10, 20, true, ["subtraction-bis-20-noshuffle"]),
     builtMultiplicationAtom("Multiplikation bis 3 · 4", 1, 3, 1, 4, []),
+    builtMultiplicationAtom("Multiplikation bis 4 · 5", 1, 4, 2, 5, ["multiplikation-1-3-1-4"]),
 
     {
         id: `uppercase-to-lowercase-letters`,
