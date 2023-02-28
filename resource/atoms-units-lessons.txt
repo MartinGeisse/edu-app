@@ -108,3 +108,21 @@ What would a user need?
 
 The atom page could have a button for "I already know about this topic" that lets the user to SKIP one of the nodes
 in the supertopic chain for that atom.
+
+---------------------------------------------------------------------
+
+A "map" of atoms isn't good for a general overview because
+- there are too many atoms to map all of them
+- there are usually even too many *unlocked, unsolved* atoms
+- there is no useful way to arrange them
+--> suggestions for unlocked, unsovled atoms are better.
+    The current system can be adapted to suggestions.
+
+A map is useful for a sub-stopic and if its atoms are arranged manually. This can be "imposed" on existing atoms.
+
+How can you allow users of different knowledge level to enter the game easily?
+- just make them solve all atoms (but takes a lot of time even if you know everything, might lose users)
+- entrance / shortcut atoms: If solved, these mark a lot of other atoms solved.
+    - should we persist the "implied" atoms? v1: yes, thats easier to implement.
+
+
