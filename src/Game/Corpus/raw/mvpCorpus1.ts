@@ -60,6 +60,23 @@ function builtSubtractionAtom(minValue: number, maxValue: number, shuffle: boole
     };
 }
 
+function builtMultiplicationAtom(title: string, min1: number, max1: number, min2: number, max2: number, preconditionAtomIds: string[]): Atom {
+    return {
+        id: `multiplikation-${min1}-${max1}-${min2}-${max2}`,
+        title,
+        preconditionAtomIds,
+        content: noContent,
+        exerciseGenerator: () => {
+            const a = random(max1 - min1 + 1) + min1;
+            const b = random(max2 - min2 + 1) + min2;
+            const [x, y] = Math.random() < 0.5 ? [a, b] : [b, a];
+            const description = centeredText(`${x} · ${y}`);
+            return makeDescriptionAnd(description, radioTo(max1 * max2, x * y, false));
+        },
+        exerciseRules: {targetScore: 100},
+    };
+}
+
 // --------------------------------------------------------------------------------------------------------------------
 
 const uppercaseAlphabetWithUmlauts = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
@@ -93,6 +110,7 @@ export const mvpCorpus1: Atom[] = [
     builtSubtractionAtom(0, 10, true, ["subtraction-bis-10-noshuffle"]),
     builtSubtractionAtom(10, 20, false, ["subtraction-bis-10-shuffle"]),
     builtSubtractionAtom(10, 20, true, ["subtraction-bis-20-noshuffle"]),
+    builtMultiplicationAtom("Multiplikation bis 3 · 4", 1, 3, 1, 4, []),
 
     {
         id: `uppercase-to-lowercase-letters`,
