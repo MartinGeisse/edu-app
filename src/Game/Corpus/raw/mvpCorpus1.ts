@@ -82,11 +82,14 @@ function builtMultiplicationAtom(title: string, min1: number, max1: number, min2
 const uppercaseAlphabetWithUmlauts = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
     "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Ä", "Ö", "Ü"];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const uppercaseAlphabetWithoutUmlauts = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
     "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 const lowercaseAlphabetWithUmlauts = uppercaseAlphabetWithUmlauts.map(x => x.toLowerCase());
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const lowercaseAlphabetWithUmlautsAndSz = [...lowercaseAlphabetWithUmlauts, "ß"];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const lowercaseAlphabetWithoutUmlauts = uppercaseAlphabetWithUmlauts.map(x => x.toLowerCase());
 
 // "case insensitive" refers to comparison of the entered letter with the expected letter

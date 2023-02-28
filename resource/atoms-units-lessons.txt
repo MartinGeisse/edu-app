@@ -122,6 +122,7 @@ A map is useful for a sub-stopic and if its atoms are arranged manually. This ca
 
 How can you allow users of different knowledge level to enter the game easily?
 - just make them solve all atoms (but takes a lot of time even if you know everything, might lose users)
+    - but too many users will think they know things and they really don't!
 - entrance / shortcut atoms: If solved, these mark a lot of other atoms solved.
     - should we persist the "implied" atoms? v1: yes, thats easier to implement.
 
