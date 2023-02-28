@@ -1,0 +1,11 @@
+
+Currently, an exercise IS a component, i.e. the exercise generator is a function that returns a (component) function
+which then gets called through a JSX element. This makes the exercise generator AND the exercise non-scriptable
+and the exercise non-persistable.
+
+If instead the exercise generator is a script and the resulting exercise a plain data structure (JSON, Lisp tree,
+whatever) then all these problems would be solved, BUT adding new exercise (UI) types must happen independent from
+adding the exercises themselves. "Users" can only add exercise generators and atoms, but not exercise (UI) types.
+
+Maybe that tradeoff is acceptable. For SaaS, the only alternative is to open the GUI-defining language to users.
+(The same is true for non-SaaS, but it's not a problem there).
