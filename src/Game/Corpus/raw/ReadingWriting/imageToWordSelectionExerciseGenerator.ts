@@ -1,9 +1,9 @@
 import {
     makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers
-} from "../../../Exercise/Factory/makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers";
-import {randomElement} from "../../../Util/randomElement";
+} from "../../../../Exercise/Factory/makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers";
+import {randomElement} from "../../../../Util/randomElement";
 import {dictionaryWithPictures} from "./dictionary/dictionaryWithPictures";
-import {makeDescriptionAnd} from "../../../Exercise/Factory/makeDescriptionAnd";
+import {makeDescriptionAnd} from "../../../../Exercise/Factory/makeDescriptionAnd";
 
 export function imageToWordSelectionExerciseGenerator() {
     const entryOriginal = randomElement(dictionaryWithPictures);

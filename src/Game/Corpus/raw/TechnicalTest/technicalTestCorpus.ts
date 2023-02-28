@@ -1,11 +1,11 @@
-import {randomInt} from "../../../Util/randomInt";
-import {makeIntegerComplexValidator} from "../makeIntegerComplexValidator";
-import {makeTextFieldExercise} from "../../../Exercise/Factory/makeTextFieldExercise";
-import {makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers} from "../../../Exercise/Factory/makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers";
-import {makeShuffledCheckboxLikeButtonMatrix} from "../../../Exercise/Factory/makeShuffledCheckboxLikeButtonMatrix";
-import {makeDescriptionAnd} from "../../../Exercise/Factory/makeDescriptionAnd";
-import {StaticBlockContent} from "../../../Util/StaticContent/StaticBlockContent";
-import {Atom} from "../../Atom/AtomTypes";
+import {randomInt} from "../../../../Util/randomInt";
+import {makeIntegerComplexValidator} from "../../makeIntegerComplexValidator";
+import {makeTextFieldExercise} from "../../../../Exercise/Factory/makeTextFieldExercise";
+import {makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers} from "../../../../Exercise/Factory/makeShuffledRadioLikeButtonMatrixFromSeparatedAnswers";
+import {makeShuffledCheckboxLikeButtonMatrix} from "../../../../Exercise/Factory/makeShuffledCheckboxLikeButtonMatrix";
+import {makeDescriptionAnd} from "../../../../Exercise/Factory/makeDescriptionAnd";
+import {StaticBlockContent} from "../../../../Util/StaticContent/StaticBlockContent";
+import {Atom} from "../../../Atom/AtomTypes";
 
 function text(text: string): StaticBlockContent {
     return {type: "paragraph", content: text};
